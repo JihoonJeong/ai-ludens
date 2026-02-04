@@ -589,6 +589,12 @@ img {
   font-size: var(--text-small);
 }
 
+.viz-placeholder::before {
+  content: '\1F4CA';
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
 /* ========================================
    Inline Image — Content Images
    ======================================== */
@@ -873,6 +879,11 @@ img {
   .hero {
     height: 50vh;
     min-height: 300px;
+    background: url('../images/hero_main.jpg') center/cover no-repeat;
+  }
+
+  .hero-media video {
+    display: none;
   }
 
   .hero h1 {
