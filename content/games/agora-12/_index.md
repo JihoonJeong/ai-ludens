@@ -1,6 +1,7 @@
 ---
 title: "Agora-12: The Survival Game"
 description: "Can AI agents survive when resources are scarce?"
+hero_image: "images/agora12_story.jpg"
 ---
 
 ## Story — How This Game Began
@@ -22,6 +23,11 @@ The answer was not what we expected.
 ---
 
 ## Design — How Agora-12 Works
+
+<div class="content-image centered">
+  <img src="/ai-ludens/images/agora12_map.jpg" alt="Agora-12 Village Map" loading="lazy">
+  <div class="image-caption">The village of Agora-12: Market, Plaza, and Alleys</div>
+</div>
 
 ### Core Parameters
 

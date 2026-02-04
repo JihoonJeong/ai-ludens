@@ -1,5 +1,5 @@
 {{ define "main" }}
-<section class="page">
+<section class="list-page">
   <h1>{{ .Title }}</h1>
   <p class="page-description">{{ .Description }}</p>
 
@@ -8,7 +8,12 @@
     <div class="timeline-entry">
       <div class="timeline-date">{{ .Date.Format "2006-01-02" }}</div>
       <div class="timeline-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
-      <div class="timeline-body">{{ .Summary }}</div>
+      <div class="timeline-body">{{ .Content }}</div>
+      {{ with .Params.image }}
+      <div class="timeline-image">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+      </div>
+      {{ end }}
     </div>
     {{ end }}
   </div>

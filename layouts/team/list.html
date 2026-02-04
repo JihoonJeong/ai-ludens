@@ -1,0 +1,23 @@
+{{ define "main" }}
+{{ with .Params.hero_image }}
+<div class="page-hero" style="height: 40vh; min-height: 280px;">
+  <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+  <div class="page-hero-content">
+    <h1>{{ $.Title }}</h1>
+    {{ with $.Description }}<p class="page-subtitle">{{ . }}</p>{{ end }}
+  </div>
+</div>
+{{ end }}
+
+<article class="page">
+  {{ if not .Params.hero_image }}<h1>{{ .Title }}</h1>{{ end }}
+  {{ .Content }}
+
+  {{ range .Pages }}
+  <article class="list-item">
+    <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+    {{ if .Description }}<p>{{ .Description }}</p>{{ end }}
+  </article>
+  {{ end }}
+</article>
+{{ end }}

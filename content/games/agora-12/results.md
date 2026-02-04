@@ -1,6 +1,7 @@
 ---
 title: "Results — What Happened"
 description: "Agora-12 experiment results across 20 runs"
+hero_image: "images/eloquent_extinction.jpg"
 ---
 
 We ran 20 simulations: 2 models × 2 languages × 5 repetitions.

@@ -2,6 +2,7 @@
 title: "Project Rosetta"
 date: 2026-02-02T14:00:00+09:00
 description: "The language effect was a prompt design artifact"
+image: "images/project_rosetta.jpg"
 ---
 
 Korean and English experiments showed dramatically different results. Korean agents: total extinction. English agents: 58% survival.
