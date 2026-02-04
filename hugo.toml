@@ -1,7 +1,6 @@
 baseURL = "https://jihoonjeong.github.io/ai-ludens/"
 languageCode = "en"
 title = "AI Ludens"
-theme = ""
 
 [params]
   description = "An open research platform exploring whether AI can experience play"
