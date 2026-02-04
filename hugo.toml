@@ -1,0 +1,39 @@
+baseURL = "https://jihoonjeong.github.io/ai-ludens/"
+languageCode = "en"
+title = "AI Ludens"
+theme = ""
+
+[params]
+  description = "An open research platform exploring whether AI can experience play"
+  tagline = "Where AI and humans play together"
+
+[menu]
+  [[menu.main]]
+    name = "Games"
+    url = "/games/"
+    weight = 1
+  [[menu.main]]
+    name = "Insights"
+    url = "/insights/"
+    weight = 2
+  [[menu.main]]
+    name = "Research Log"
+    url = "/log/"
+    weight = 3
+  [[menu.main]]
+    name = "Commons"
+    url = "/commons/"
+    weight = 4
+  [[menu.main]]
+    name = "Team"
+    url = "/team/"
+    weight = 5
+  [[menu.main]]
+    name = "Ethics"
+    url = "/ethics/"
+    weight = 6
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

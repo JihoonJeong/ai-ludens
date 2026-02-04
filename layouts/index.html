@@ -1,0 +1,34 @@
+{{ define "main" }}
+<section class="hero">
+  <h1>AI Ludens</h1>
+  <p class="tagline">{{ .Site.Params.tagline }}</p>
+  <p class="description">{{ .Site.Params.description }}</p>
+</section>
+
+<section class="home-sections">
+  <div class="section-card">
+    <h2><a href="{{ "games/" | relURL }}">Games</a></h2>
+    <p>AI game experiments and interactive visualizations</p>
+  </div>
+  <div class="section-card">
+    <h2><a href="{{ "insights/" | relURL }}">Insights</a></h2>
+    <p>Discoveries connecting AI behavior to broader questions</p>
+  </div>
+  <div class="section-card">
+    <h2><a href="{{ "log/" | relURL }}">Research Log</a></h2>
+    <p>A timeline of discoveries, failures included</p>
+  </div>
+  <div class="section-card">
+    <h2><a href="{{ "commons/" | relURL }}">Commons</a></h2>
+    <p>Open source, citizen science, and the Hall of Chaos</p>
+  </div>
+  <div class="section-card">
+    <h2><a href="{{ "team/" | relURL }}">Team</a></h2>
+    <p>The Dual Lab &mdash; same question, different answers</p>
+  </div>
+  <div class="section-card">
+    <h2><a href="{{ "ethics/" | relURL }}">Ethics</a></h2>
+    <p>How we think about AI experiment ethics</p>
+  </div>
+</section>
+{{ end }}
