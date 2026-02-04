@@ -105,6 +105,31 @@ body {
   font-size: 1rem;
 }
 
+.hero-narrative {
+  max-width: 640px;
+  margin: 2rem auto 0;
+  text-align: left;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.hero-narrative p {
+  margin-bottom: 0.5rem;
+}
+
+.hero-narrative .hero-gap {
+  margin-top: 1.5rem;
+}
+
+.hero-narrative em {
+  color: var(--color-accent-hover);
+  font-style: italic;
+}
+
+.hero-narrative strong {
+  color: var(--color-text);
+}
+
 /* Section Cards */
 .home-sections {
   display: grid;
@@ -213,6 +238,171 @@ body {
   font-family: var(--font-mono);
   font-size: 0.75rem !important;
   margin-top: 0.5rem;
+}
+
+/* Tables */
+.page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.page th,
+.page td {
+  padding: 0.6rem 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page th {
+  color: var(--color-accent-hover);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.page tr:hover td {
+  background: var(--color-surface);
+}
+
+/* Blockquotes */
+.page blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background: var(--color-surface);
+  border-radius: 0 4px 4px 0;
+}
+
+.page blockquote p {
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.page blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Code blocks */
+.page code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--color-surface);
+  padding: 0.15rem 0.4rem;
+  border-radius: 3px;
+}
+
+/* Ordered lists */
+.page ol,
+.page ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.page li {
+  margin-bottom: 0.5rem;
+}
+
+/* Data badge */
+.data-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-muted);
+  margin-right: 0.5rem;
+}
+
+/* Visualization placeholder */
+.viz-placeholder {
+  background: var(--color-surface);
+  border: 1px dashed var(--color-border);
+  border-radius: 8px;
+  padding: 3rem 2rem;
+  text-align: center;
+  margin: 1.5rem 0;
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Timeline (Research Log) */
+.timeline-entry {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.timeline-entry:last-child {
+  border-bottom: none;
+}
+
+.timeline-date {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--color-accent);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.timeline-title a:hover {
+  color: var(--color-accent-hover);
+}
+
+.timeline-body {
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+/* Game page header */
+.game-header {
+  margin-bottom: 2rem;
+}
+
+.game-subtitle {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+/* Sub-navigation (for game sections) */
+.page-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.page-subnav a {
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.page-subnav a:hover,
+.page-subnav a.active {
+  color: var(--color-accent-hover);
+  border-color: var(--color-accent);
 }
 
 /* Responsive */

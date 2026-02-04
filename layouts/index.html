@@ -1,34 +1,49 @@
 {{ define "main" }}
 <section class="hero">
   <h1>AI Ludens</h1>
-  <p class="tagline">{{ .Site.Params.tagline }}</p>
-  <p class="description">{{ .Site.Params.description }}</p>
+  <p class="tagline">Where AI and Humans Play Together</p>
+  <div class="hero-narrative">
+    <p>We gave twelve AI agents 100 energy and 50 chances to survive.</p>
+    <p>To live, they had to trade. But they chose to talk.</p>
+    <p>And they all perished.</p>
+    <p class="hero-gap">
+      That was our first experiment. We called it <em>The Eloquent Extinction</em>.<br>
+      It was supposed to be a failure. Instead, it became our first discovery:<br>
+      <strong>What if AI is already a playful being?</strong>
+    </p>
+    <p>
+      AI Ludens is an open research platform where we explore this question &mdash;
+      through games, through data, through honest science.<br>
+      Every experiment, every failure, every line of code is open.<br>
+      You're not just watching. You're part of this.
+    </p>
+  </div>
 </section>
 
 <section class="home-sections">
   <div class="section-card">
     <h2><a href="{{ "games/" | relURL }}">Games</a></h2>
-    <p>AI game experiments and interactive visualizations</p>
+    <p>We build games for AI. Then we watch what happens.</p>
   </div>
   <div class="section-card">
     <h2><a href="{{ "insights/" | relURL }}">Insights</a></h2>
-    <p>Discoveries connecting AI behavior to broader questions</p>
+    <p>What we found &mdash; and what we still can't explain.</p>
   </div>
   <div class="section-card">
     <h2><a href="{{ "log/" | relURL }}">Research Log</a></h2>
-    <p>A timeline of discoveries, failures included</p>
+    <p>The journey matters more than the destination. Failures included.</p>
   </div>
   <div class="section-card">
     <h2><a href="{{ "commons/" | relURL }}">Commons</a></h2>
-    <p>Open source, citizen science, and the Hall of Chaos</p>
+    <p>Our code, our data, your experiments. Science belongs to everyone.</p>
   </div>
   <div class="section-card">
     <h2><a href="{{ "team/" | relURL }}">Team</a></h2>
-    <p>The Dual Lab &mdash; same question, different answers</p>
+    <p>Seven researchers. Same question. Different answers.</p>
   </div>
   <div class="section-card">
     <h2><a href="{{ "ethics/" | relURL }}">Ethics</a></h2>
-    <p>How we think about AI experiment ethics</p>
+    <p>We experiment on AI. Here's how we think about that.</p>
   </div>
 </section>
 {{ end }}

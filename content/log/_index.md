@@ -1,6 +1,4 @@
 ---
 title: "Research Log"
-description: "A chronological timeline of discoveries"
+description: "The voyage log. Discoveries in order, failures included."
 ---
-
-The voyage log. Discoveries in order, failures included.
