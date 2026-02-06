@@ -15,6 +15,19 @@
         {{ range .Site.Menus.main }}
         <li><a href="{{ .URL | relURL }}" class="{{ if $.IsMenuCurrent "main" . }}active{{ end }}">{{ .Name }}</a></li>
         {{ end }}
+        <li class="lang-switcher">
+          {{ if .IsTranslated }}
+            {{ range .Translations }}
+            <a href="{{ .Permalink }}" class="lang-toggle">{{ .Language.LanguageName }}</a>
+            {{ end }}
+          {{ else }}
+            {{ range $.Site.Home.AllTranslations }}
+              {{ if ne $.Language.Lang .Language.Lang }}
+              <a href="{{ .Permalink }}" class="lang-toggle">{{ .Language.LanguageName }}</a>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        </li>
       </ul>
     </nav>
   </header>
@@ -26,7 +39,7 @@
   <footer class="site-footer">
     <div class="footer-content">
       <p>&copy; 2026 AI Ludens &mdash; The Dual Lab</p>
-      <p class="footer-tagline">Open by Default. Story First. Play Together. Honest Science.</p>
+      <p class="footer-tagline">{{ i18n "footer_tagline" }}</p>
     </div>
   </footer>
 </body>

@@ -1,36 +1,72 @@
 baseURL = "https://jihoonjeong.github.io/ai-ludens/"
-languageCode = "en"
 title = "AI Ludens"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
 
-[params]
-  description = "An open research platform exploring whether AI can experience play"
-  tagline = "Where AI and humans play together"
-
-[menu]
-  [[menu.main]]
-    name = "Agora-12"
-    url = "/games/agora-12/"
+[languages]
+  [languages.en]
+    languageCode = "en"
+    languageName = "EN"
     weight = 1
-  [[menu.main]]
-    name = "Games"
-    url = "/games/"
+    [languages.en.params]
+      description = "An open research platform exploring whether AI can experience play"
+      tagline = "Where AI and humans play together"
+    [[languages.en.menu.main]]
+      name = "Agora-12"
+      url = "/games/agora-12/"
+      weight = 1
+    [[languages.en.menu.main]]
+      name = "Games"
+      url = "/games/"
+      weight = 2
+    [[languages.en.menu.main]]
+      name = "Insights"
+      url = "/insights/"
+      weight = 3
+    [[languages.en.menu.main]]
+      name = "Log"
+      url = "/log/"
+      weight = 4
+    [[languages.en.menu.main]]
+      name = "Team"
+      url = "/team/"
+      weight = 5
+    [[languages.en.menu.main]]
+      name = "Commons"
+      url = "/commons/"
+      weight = 6
+
+  [languages.ko]
+    languageCode = "ko"
+    languageName = "KO"
     weight = 2
-  [[menu.main]]
-    name = "Insights"
-    url = "/insights/"
-    weight = 3
-  [[menu.main]]
-    name = "Log"
-    url = "/log/"
-    weight = 4
-  [[menu.main]]
-    name = "Team"
-    url = "/team/"
-    weight = 5
-  [[menu.main]]
-    name = "Commons"
-    url = "/commons/"
-    weight = 6
+    [languages.ko.params]
+      description = "AI가 놀이를 경험할 수 있는지 탐구하는 오픈 리서치 플랫폼"
+      tagline = "AI와 인간이 함께 노는 곳"
+    [[languages.ko.menu.main]]
+      name = "Agora-12"
+      url = "/ko/games/agora-12/"
+      weight = 1
+    [[languages.ko.menu.main]]
+      name = "게임"
+      url = "/ko/games/"
+      weight = 2
+    [[languages.ko.menu.main]]
+      name = "인사이트"
+      url = "/ko/insights/"
+      weight = 3
+    [[languages.ko.menu.main]]
+      name = "로그"
+      url = "/ko/log/"
+      weight = 4
+    [[languages.ko.menu.main]]
+      name = "팀"
+      url = "/ko/team/"
+      weight = 5
+    [[languages.ko.menu.main]]
+      name = "커먼즈"
+      url = "/ko/commons/"
+      weight = 6
 
 [markup]
   [markup.goldmark]

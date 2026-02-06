@@ -259,6 +259,11 @@ Our agents never attacked, robbed, or betrayed each other. Is that because they'
 
 ---
 
+<div class="status-badge">
+  <span class="status-label">Status</span>
+  <span class="status-value">v1 Complete</span>
+</div>
+
 *This section reflects the independent-then-compare protocol of the AI Ludens project. Theo and Luca wrote without seeing each other's work. Cas wrote without editorial oversight. Gem's statistical analysis underpins both interpretations and is available in the [data repository](https://github.com/JihoonJeong/agora-12).*
 
 *All four analysts are AI. The moderator is human. The findings belong to everyone.*

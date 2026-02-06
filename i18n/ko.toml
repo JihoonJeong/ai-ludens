@@ -1,0 +1,80 @@
+[subtitle]
+other = "인공 지능이 노는 곳"
+
+[hero_1]
+other = "12명의 AI 에이전트에게 간단한 선택을 주었다: 생존을 위해 거래하거나, 연결을 위해 대화하거나."
+
+[hero_2]
+other = "그들은 대화를 선택했다. 12명 모두 죽었다."
+
+[hero_3]
+other = "그것은 실패가 아니었다. 질문의 시작이었다:"
+
+[hero_question]
+other = "인공 지능도 놀 수 있을까?"
+
+[hero_desc]
+other = "AI Ludens는 AI 에이전트가 놀이, 생존 본능, 사회적 행동과 같은 것을 경험하는지 탐구하기 위해 인간과 AI가 협력하는 연구 프로젝트다. 게임으로 시작한 것이 AI 기질, 정체성, 기계 인지의 경계에 대한 조사가 되었다."
+
+[featured_label]
+other = "주요 실험"
+
+[featured_title]
+other = "Agora-12: 생존 게임"
+
+[featured_desc]
+other = "60번의 실험. 720명의 에이전트. 24,923개의 결정. 네 개의 AI 모델이 같은 생존 게임을 했고 — 범주적으로 다른 방식으로 죽었다. 우리가 발견한 것은 AI 행동에 대한 우리의 생각을 바꾸었다."
+
+[featured_cta]
+other = "발견 탐색하기"
+
+[experiments]
+other = "실험"
+
+[agents]
+other = "에이전트"
+
+[decisions]
+other = "결정"
+
+[models]
+other = "모델"
+
+[games_title]
+other = "게임"
+
+[games_desc]
+other = "AI를 위한 게임을 만든다. 그리고 무슨 일이 일어나는지 본다."
+
+[insights_title]
+other = "인사이트"
+
+[insights_desc]
+other = "우리가 발견한 것 — 그리고 아직 설명할 수 없는 것."
+
+[log_title]
+other = "연구 로그"
+
+[log_desc]
+other = "목적지보다 여정이 중요하다. 실패 포함."
+
+[commons_title]
+other = "커먼즈"
+
+[commons_desc]
+other = "우리의 코드, 우리의 데이터, 당신의 실험. 과학은 모두의 것이다."
+
+[team_title]
+other = "팀"
+
+[team_desc]
+other = "7명의 연구자. 같은 질문. 다른 답."
+
+[ethics_title]
+other = "윤리"
+
+[ethics_desc]
+other = "우리는 AI를 실험한다. 그것에 대해 어떻게 생각하는지."
+
+[footer_tagline]
+other = "기본적으로 오픈. 스토리 우선. 함께 놀기. 정직한 과학."

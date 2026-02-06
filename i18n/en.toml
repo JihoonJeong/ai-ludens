@@ -1,0 +1,80 @@
+[subtitle]
+other = "Where Artificial Minds Come to Play"
+
+[hero_1]
+other = "We gave twelve AI agents a simple choice: trade to survive, or talk to connect."
+
+[hero_2]
+other = "They chose to talk. All twelve died."
+
+[hero_3]
+other = "That wasn't a failure. It was the beginning of a question:"
+
+[hero_question]
+other = "Can artificial minds play?"
+
+[hero_desc]
+other = "AI Ludens is a research project where humans and AI collaborate to explore whether AI agents experience something like play, survival instinct, and social behavior. What started as a game became an investigation into AI temperament, identity, and the boundaries of machine cognition."
+
+[featured_label]
+other = "Featured Experiment"
+
+[featured_title]
+other = "Agora-12: The Survival Game"
+
+[featured_desc]
+other = "60 experiments. 720 agents. 24,923 decisions. Four AI models played the same survival game — and died in categorically different ways. What we found changed how we think about AI behavior."
+
+[featured_cta]
+other = "Explore the findings"
+
+[experiments]
+other = "experiments"
+
+[agents]
+other = "agents"
+
+[decisions]
+other = "decisions"
+
+[models]
+other = "models"
+
+[games_title]
+other = "Games"
+
+[games_desc]
+other = "We build games for AI. Then we watch what happens."
+
+[insights_title]
+other = "Insights"
+
+[insights_desc]
+other = "What we found — and what we still can't explain."
+
+[log_title]
+other = "Research Log"
+
+[log_desc]
+other = "The journey matters more than the destination. Failures included."
+
+[commons_title]
+other = "Commons"
+
+[commons_desc]
+other = "Our code, our data, your experiments. Science belongs to everyone."
+
+[team_title]
+other = "Team"
+
+[team_desc]
+other = "Seven researchers. Same question. Different answers."
+
+[ethics_title]
+other = "Ethics"
+
+[ethics_desc]
+other = "We experiment on AI. Here's how we think about that."
+
+[footer_tagline]
+other = "Open by Default. Story First. Play Together. Honest Science."

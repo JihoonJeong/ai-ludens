@@ -7,21 +7,17 @@
   </div>
   <div class="hero-content">
     <h1>AI Ludens</h1>
-    <p class="subtitle">Where Artificial Minds Come to Play</p>
+    <p class="subtitle">{{ i18n "subtitle" }}</p>
   </div>
 </section>
 
 <div class="hero-narrative">
-  <p>We gave twelve AI agents a simple choice: trade to survive, or talk to connect.</p>
-  <p>They chose to talk. All twelve died.</p>
+  <p>{{ i18n "hero_1" }}</p>
+  <p>{{ i18n "hero_2" }}</p>
   <p class="hero-gap">
-    That wasn't a failure. It was the beginning of a question: <em>Can artificial minds play?</em>
+    {{ i18n "hero_3" }} <em>{{ i18n "hero_question" }}</em>
   </p>
-  <p>
-    AI Ludens is a research project where humans and AI collaborate to explore whether AI agents
-    experience something like play, survival instinct, and social behavior. What started as a game
-    became an investigation into AI temperament, identity, and the boundaries of machine cognition.
-  </p>
+  <p>{{ i18n "hero_desc" }}</p>
 </div>
 
 <section class="featured-section">
@@ -30,10 +26,10 @@
       <img src="{{ "images/eloquent_extinction.jpg" | relURL }}" alt="Eloquent Extinction">
     </div>
     <div class="featured-card-content">
-      <div class="featured-card-label">Featured Experiment</div>
-      <h2><a href="{{ "games/agora-12/" | relURL }}">Agora-12: The Survival Game</a></h2>
-      <p>60 experiments. 720 agents. 24,923 decisions. Four AI models played the same survival game &mdash; and died in categorically different ways. What we found changed how we think about AI behavior.</p>
-      <a href="{{ "games/agora-12/" | relURL }}" class="cta">Explore the findings &rarr;</a>
+      <div class="featured-card-label">{{ i18n "featured_label" }}</div>
+      <h2><a href="{{ "games/agora-12/" | relLangURL }}">{{ i18n "featured_title" }}</a></h2>
+      <p>{{ i18n "featured_desc" }}</p>
+      <a href="{{ "games/agora-12/" | relLangURL }}" class="cta">{{ i18n "featured_cta" }} &rarr;</a>
     </div>
   </div>
 </section>
@@ -41,19 +37,19 @@
 <div class="key-numbers-banner">
   <div class="key-number">
     <span class="value">60</span>
-    <span class="label">experiments</span>
+    <span class="label">{{ i18n "experiments" }}</span>
   </div>
   <div class="key-number">
     <span class="value">720</span>
-    <span class="label">agents</span>
+    <span class="label">{{ i18n "agents" }}</span>
   </div>
   <div class="key-number">
     <span class="value">24,923</span>
-    <span class="label">decisions</span>
+    <span class="label">{{ i18n "decisions" }}</span>
   </div>
   <div class="key-number">
     <span class="value">4</span>
-    <span class="label">models</span>
+    <span class="label">{{ i18n "models" }}</span>
   </div>
   <div class="key-number significant">
     <span class="value">p=0.039</span>
@@ -63,28 +59,28 @@
 
 <section class="home-sections">
   <div class="section-card">
-    <h2><a href="{{ "games/" | relURL }}">Games</a></h2>
-    <p>We build games for AI. Then we watch what happens.</p>
+    <h2><a href="{{ "games/" | relLangURL }}">{{ i18n "games_title" }}</a></h2>
+    <p>{{ i18n "games_desc" }}</p>
   </div>
   <div class="section-card">
-    <h2><a href="{{ "insights/" | relURL }}">Insights</a></h2>
-    <p>What we found &mdash; and what we still can't explain.</p>
+    <h2><a href="{{ "insights/" | relLangURL }}">{{ i18n "insights_title" }}</a></h2>
+    <p>{{ i18n "insights_desc" }}</p>
   </div>
   <div class="section-card">
-    <h2><a href="{{ "log/" | relURL }}">Research Log</a></h2>
-    <p>The journey matters more than the destination. Failures included.</p>
+    <h2><a href="{{ "log/" | relLangURL }}">{{ i18n "log_title" }}</a></h2>
+    <p>{{ i18n "log_desc" }}</p>
   </div>
   <div class="section-card">
-    <h2><a href="{{ "commons/" | relURL }}">Commons</a></h2>
-    <p>Our code, our data, your experiments. Science belongs to everyone.</p>
+    <h2><a href="{{ "commons/" | relLangURL }}">{{ i18n "commons_title" }}</a></h2>
+    <p>{{ i18n "commons_desc" }}</p>
   </div>
   <div class="section-card">
-    <h2><a href="{{ "team/" | relURL }}">Team</a></h2>
-    <p>Seven researchers. Same question. Different answers.</p>
+    <h2><a href="{{ "team/" | relLangURL }}">{{ i18n "team_title" }}</a></h2>
+    <p>{{ i18n "team_desc" }}</p>
   </div>
   <div class="section-card">
-    <h2><a href="{{ "ethics/" | relURL }}">Ethics</a></h2>
-    <p>We experiment on AI. Here's how we think about that.</p>
+    <h2><a href="{{ "ethics/" | relLangURL }}">{{ i18n "ethics_title" }}</a></h2>
+    <p>{{ i18n "ethics_desc" }}</p>
   </div>
 </section>
 {{ end }}
