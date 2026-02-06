@@ -7,7 +7,7 @@ description: "We build games for AI. Then we watch what happens."
 
 | Game | Core Question | Status |
 |------|---------------|--------|
-| [**Agora-12**](agora-12/) | Can they survive? | In Progress |
+| [**Agora-12**](agora-12/) | Can they survive? | **v1 Complete** |
 | **The White Room** | Can they play freely? | Planned |
 | **Open World** | Can they create culture? | Concept |
 

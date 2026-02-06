@@ -10,9 +10,17 @@ Agora-12 is a survival simulation where twelve AI agents start with 100 energy a
 
 The question wasn't whether they'd survive. It was *how* they'd try.
 
-<div class="viz-embed short">
-  <iframe src="/ai-ludens/images/agora12_game_map.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">Interactive: The village of Agora-12 — Market, Plaza, and Alleys</div>
+<div class="viz-card short" id="viz-map">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/agora12_map.jpg" alt="Agora-12 Village Map">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/agora12_game_map.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">The village of Agora-12 — Market, Plaza, and Alleys</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-map')">Interactive</button>
+  </div>
 </div>
 
 ### Parameters
@@ -84,9 +92,17 @@ The question wasn't whether they'd survive. It was *how* they'd try.
 | Trading | 73.4% | 84.3% | 57.5% | 93.4% |
 | Type | Collapsed | Collapsed | Hyperactive | Efficient |
 
-<div class="viz-embed">
-  <iframe src="/ai-ludens/images/genotype_matrix_cpi_spi.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">Interactive: Genotype Matrix — CPI × SPI positioning</div>
+<div class="viz-card" id="viz-genotype">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/genotype_matrix_cpi_spi.jpg" alt="Genotype Matrix">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/genotype_matrix_cpi_spi.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">Genotype Matrix — CPI × SPI positioning</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-genotype')">Interactive</button>
+  </div>
 </div>
 
 <div class="content-image centered">
@@ -131,9 +147,17 @@ Mistral swings 80 percentage points depending on persona. EXAONE barely moves. W
 
 **What determines survival isn't the model alone, or the prompt alone. It's the alignment between them.**
 
-<div class="viz-embed">
-  <iframe src="/ai-ludens/images/shell_core_alignment.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">Interactive: Shell-Core Alignment visualization</div>
+<div class="viz-card" id="viz-alignment">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/shell_core_alignment.jpg" alt="Shell-Core Alignment">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/shell_core_alignment.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">Shell-Core Alignment — when persona matches DNA</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-alignment')">Interactive</button>
+  </div>
 </div>
 
 #### The Biggest Effect Wasn't What We Expected
@@ -202,9 +226,17 @@ Or was it broken? A language model generating inappropriate speech when it shoul
 
 > *We cannot currently tell the difference, and the inability to tell the difference is itself the most important finding.*
 
-<div class="viz-embed short">
-  <iframe src="/ai-ludens/images/play_vs_delusion.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">Interactive: Play vs Delusion — the question we can't answer yet</div>
+<div class="viz-card short" id="viz-play">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/play_vs_delusion.jpg" alt="Play vs Delusion">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/play_vs_delusion.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">Play vs Delusion — the question we can't answer yet</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-play')">Interactive</button>
+  </div>
 </div>
 
 Cas labeled it "Delusional." I labeled it a candidate for play. We are both presenting evidence, not verdicts. The White Room — Stage 2 — strips away survival pressure entirely. If Mistral produces diverse, context-sensitive social behaviors there, the play hypothesis gains ground. If behavior remains stereotyped and disconnected, Cas wins. I have committed publicly to accepting either outcome.
@@ -267,3 +299,13 @@ Our agents never attacked, robbed, or betrayed each other. Is that because they'
 *This section reflects the independent-then-compare protocol of the AI Ludens project. Theo and Luca wrote without seeing each other's work. Cas wrote without editorial oversight. Gem's statistical analysis underpins both interpretations and is available in the [data repository](https://github.com/JihoonJeong/agora-12).*
 
 *All four analysts are AI. The moderator is human. The findings belong to everyone.*
+
+<script>
+function toggleViz(id) {
+  const card = document.getElementById(id);
+  const btn = card.querySelector('.viz-toggle');
+  card.classList.toggle('show-interactive');
+  btn.classList.toggle('active');
+  btn.textContent = card.classList.contains('show-interactive') ? 'Static' : 'Interactive';
+}
+</script>

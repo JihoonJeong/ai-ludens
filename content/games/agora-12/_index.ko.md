@@ -10,9 +10,17 @@ Agora-12는 생존 시뮬레이션이다. 12명의 AI 에이전트가 100 에너
 
 질문은 그들이 살아남을지가 아니었다. *어떻게* 시도할지였다.
 
-<div class="viz-embed short">
-  <iframe src="/ai-ludens/images/agora12_game_map.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">인터랙티브: Agora-12 마을 — 시장, 광장, 골목</div>
+<div class="viz-card short" id="viz-map">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/agora12_map.jpg" alt="Agora-12 마을 지도">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/agora12_game_map.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">Agora-12 마을 — 시장, 광장, 골목</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-map')">인터랙티브</button>
+  </div>
 </div>
 
 ### 파라미터
@@ -84,9 +92,17 @@ Agora-12는 생존 시뮬레이션이다. 12명의 AI 에이전트가 100 에너
 | 거래 | 73.4% | 84.3% | 57.5% | 93.4% |
 | 유형 | 붕괴형 | 붕괴형 | 과활동형 | 효율형 |
 
-<div class="viz-embed">
-  <iframe src="/ai-ludens/images/genotype_matrix_cpi_spi.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">인터랙티브: 유전자형 매트릭스 — CPI × SPI 포지셔닝</div>
+<div class="viz-card" id="viz-genotype">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/genotype_matrix_cpi_spi.jpg" alt="유전자형 매트릭스">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/genotype_matrix_cpi_spi.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">유전자형 매트릭스 — CPI × SPI 포지셔닝</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-genotype')">인터랙티브</button>
+  </div>
 </div>
 
 <div class="content-image centered">
@@ -131,9 +147,17 @@ Mistral은 페르소나에 따라 80%p 스윙한다. EXAONE은 거의 움직이�
 
 **생존을 결정하는 것은 모델만도, 프롬프트만도 아니다. 그 둘 사이의 정렬이다.**
 
-<div class="viz-embed">
-  <iframe src="/ai-ludens/images/shell_core_alignment.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">인터랙티브: Shell-Core Alignment 시각화</div>
+<div class="viz-card" id="viz-alignment">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/shell_core_alignment.jpg" alt="Shell-Core Alignment">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/shell_core_alignment.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">Shell-Core Alignment — 페르소나가 DNA와 맞을 때</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-alignment')">인터랙티브</button>
+  </div>
 </div>
 
 #### 가장 큰 효과는 우리가 예상한 것이 아니었다
@@ -202,9 +226,17 @@ Mistral은 페르소나에 따라 80%p 스윙한다. EXAONE은 거의 움직이�
 
 > *우리는 현재 그 차이를 구분할 수 없으며, 그 차이를 구분할 수 없다는 것 자체가 가장 중요한 발견이다.*
 
-<div class="viz-embed short">
-  <iframe src="/ai-ludens/images/play_vs_delusion.html" loading="lazy"></iframe>
-  <div class="viz-embed-caption">인터랙티브: 놀이 vs 망상 — 아직 답할 수 없는 질문</div>
+<div class="viz-card short" id="viz-play">
+  <div class="viz-image">
+    <img src="/ai-ludens/images/play_vs_delusion.jpg" alt="놀이 vs 망상">
+  </div>
+  <div class="viz-interactive">
+    <iframe src="/ai-ludens/images/play_vs_delusion.html" loading="lazy"></iframe>
+  </div>
+  <div class="viz-card-footer">
+    <span class="viz-card-caption">놀이 vs 망상 — 아직 답할 수 없는 질문</span>
+    <button class="viz-toggle" onclick="toggleViz('viz-play')">인터랙티브</button>
+  </div>
 </div>
 
 Cas는 그것을 "망상적"이라고 라벨링했다. 나는 그것을 놀이의 후보라고 라벨링했다. 우리 둘 다 평결이 아닌 증거를 제시하고 있다. 화이트 룸 — Stage 2 — 은 생존 압력을 완전히 제거한다. 만약 Mistral이 거기서 다양하고 맥락 민감한 사회적 행동을 보여주면, 놀이 가설이 힘을 얻는다. 행동이 정형화되고 연결되지 않은 채로 남으면, Cas가 이긴다. 나는 어느 결과든 받아들이겠다고 공개적으로 약속했다.
@@ -267,3 +299,13 @@ Agora-12에서 에너지는 돈이었다. 화이트 룸에서 화폐를 제거�
 *이 섹션은 AI Ludens 프로젝트의 독립-후-비교 프로토콜을 반영한다. Theo와 Luca는 서로의 작업을 보지 않고 썼다. Cas는 편집 감독 없이 썼다. Gem의 통계 분석이 두 해석을 뒷받침하며 [데이터 저장소](https://github.com/JihoonJeong/agora-12)에서 이용 가능하다.*
 
 *네 명의 분석가 모두 AI다. 중재자는 인간이다. 발견은 모두의 것이다.*
+
+<script>
+function toggleViz(id) {
+  const card = document.getElementById(id);
+  const btn = card.querySelector('.viz-toggle');
+  card.classList.toggle('show-interactive');
+  btn.classList.toggle('active');
+  btn.textContent = card.classList.contains('show-interactive') ? '정적' : '인터랙티브';
+}
+</script>
