@@ -866,6 +866,142 @@ img {
 }
 
 /* ========================================
+   Interpretations — Theo / Luca / Cas
+   ======================================== */
+
+.interpretation-theo {
+  border-left: 3px solid var(--accent-amber);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.interpretation-luca {
+  border-left: 3px solid var(--accent-teal);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.interpretation-cas {
+  border-left: 3px solid var(--accent-red);
+  padding-left: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.interpretation-theo h3,
+.interpretation-luca h3,
+.interpretation-cas h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-h3);
+  margin-bottom: var(--space-sm);
+  margin-top: 0;
+}
+
+.interpretation-theo h3 { color: var(--accent-amber); }
+.interpretation-luca h3 { color: var(--accent-teal); }
+.interpretation-cas h3 { color: var(--accent-red); }
+
+.interpretation-theo h4,
+.interpretation-luca h4,
+.interpretation-cas h4 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.interpretation-author {
+  font-family: var(--font-code);
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}
+
+/* ========================================
+   Key Numbers Banner
+   ======================================== */
+
+.key-numbers-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-lg) var(--space-md);
+  margin: var(--space-lg) auto;
+  max-width: var(--max-width-wide);
+}
+
+.key-number {
+  text-align: center;
+  min-width: 100px;
+}
+
+.key-number .value {
+  font-family: var(--font-code);
+  font-size: var(--text-h1);
+  font-weight: 500;
+  color: var(--accent-teal);
+  display: block;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.key-number .label {
+  font-family: var(--font-code);
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  text-transform: lowercase;
+}
+
+.key-number.significant .value {
+  color: var(--accent-amber);
+}
+
+/* ========================================
+   Table Caption
+   ======================================== */
+
+.table-caption {
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-small);
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+/* ========================================
+   Section Divider
+   ======================================== */
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: var(--space-section) 0;
+}
+
+/* ========================================
+   Responsive — Key Numbers
+   ======================================== */
+
+@media (max-width: 600px) {
+  .key-numbers-banner {
+    gap: var(--space-md);
+  }
+
+  .key-number {
+    min-width: 80px;
+  }
+
+  .key-number .value {
+    font-size: var(--text-h2);
+  }
+}
+
+/* ========================================
    Footer
    ======================================== */
 
