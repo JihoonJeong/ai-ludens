@@ -1119,6 +1119,68 @@ img {
   margin-top: var(--space-section);
 }
 
+/* Related Projects — project cards */
+.page h2 + p + p {
+  margin-top: var(--space-md);
+}
+
+/* Improve spacing after bold project names (like **Moltbook**) */
+.page p strong:first-child {
+  display: inline;
+}
+
+/* Better spacing for multi-line project descriptions */
+.page h2 ~ p:has(strong:first-child) + p:not(:has(strong)) {
+  margin-top: var(--space-xs);
+  margin-bottom: var(--space-lg);
+}
+
+/* Ordered list improvements */
+.page ol {
+  margin: var(--space-md) 0 var(--space-lg) 0;
+  padding-left: 1.5rem;
+}
+
+.page ol li {
+  padding-left: var(--space-xs);
+  margin-bottom: var(--space-md);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Related Projects cards */
+.related-project {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: var(--space-md) var(--space-lg);
+  margin: var(--space-md) 0;
+  transition: all 0.3s ease;
+}
+
+.related-project:hover {
+  border-color: var(--accent-teal);
+}
+
+.related-project p:first-child {
+  margin-bottom: var(--space-xs);
+}
+
+.related-project p:last-child {
+  margin-bottom: 0;
+  color: var(--text-muted);
+  font-size: var(--text-small);
+}
+
+/* Page tagline — final quote */
+.page-tagline {
+  text-align: center;
+  padding: var(--space-lg) 0;
+  margin-top: var(--space-md);
+  color: var(--accent-amber);
+  font-style: italic;
+  font-size: 1rem;
+}
+
 /* ========================================
    Section Divider
    ======================================== */

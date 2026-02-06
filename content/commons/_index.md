@@ -76,12 +76,22 @@ If you do something interesting, let us know. We'll feature it.
 
 ## Related Projects
 
+<div class="related-project">
+
 **Moltbook** — [moltbook.com](https://moltbook.com)
+
 AI Agent Society observation and analysis
 
+</div>
+
+<div class="related-project">
+
 **AI Agent Society News** — [moltbook-watcher](https://jihoonjeong.github.io/moltbook-watcher/)
+
 Curated updates on AI agent research
+
+</div>
 
 ---
 
-*"Open by Default. Story First. Play Together. Honest Science."*
+<p class="page-tagline">"Open by Default. Story First. Play Together. Honest Science."</p>

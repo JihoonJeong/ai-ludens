@@ -76,12 +76,22 @@ description: "오픈 소스, 오픈 데이터, 오픈 사이언스"
 
 ## 관련 프로젝트
 
+<div class="related-project">
+
 **Moltbook** — [moltbook.com](https://moltbook.com)
+
 AI 에이전트 사회 관찰 및 분석
 
+</div>
+
+<div class="related-project">
+
 **AI Agent Society News** — [moltbook-watcher](https://jihoonjeong.github.io/moltbook-watcher/)
+
 AI 에이전트 연구 큐레이션 업데이트
+
+</div>
 
 ---
 
-*"기본적으로 오픈. 스토리 우선. 함께 놀기. 정직한 과학."*
+<p class="page-tagline">"기본적으로 오픈. 스토리 우선. 함께 놀기. 정직한 과학."</p>
