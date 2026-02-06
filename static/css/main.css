@@ -385,8 +385,9 @@ img {
 }
 
 .page p {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
 }
 
 .page a {
@@ -1111,6 +1112,7 @@ img {
   margin-top: var(--space-md);
 }
 
+
 .page .repo-card + .repo-card {
   margin-top: var(--space-lg);
 }
@@ -1119,35 +1121,48 @@ img {
   margin-top: var(--space-section);
 }
 
-/* Related Projects — project cards */
-.page h2 + p + p {
-  margin-top: var(--space-md);
-}
+/* ========================================
+   Lists — Better Spacing
+   ======================================== */
 
-/* Improve spacing after bold project names (like **Moltbook**) */
-.page p strong:first-child {
-  display: inline;
-}
-
-/* Better spacing for multi-line project descriptions */
-.page h2 ~ p:has(strong:first-child) + p:not(:has(strong)) {
-  margin-top: var(--space-xs);
-  margin-bottom: var(--space-lg);
-}
-
-/* Ordered list improvements */
 .page ol {
   margin: var(--space-md) 0 var(--space-lg) 0;
-  padding-left: 1.5rem;
+  padding-left: 2rem;
+  list-style-position: outside;
 }
 
 .page ol li {
-  padding-left: var(--space-xs);
+  padding-left: 0.5rem;
   margin-bottom: var(--space-md);
   line-height: var(--line-height-relaxed);
 }
 
-/* Related Projects cards */
+.page ul {
+  margin: var(--space-md) 0;
+  padding-left: 2rem;
+}
+
+.page ul li {
+  margin-bottom: var(--space-sm);
+}
+
+/* ========================================
+   Tables — Better Row Spacing
+   ======================================== */
+
+.page table {
+  margin: var(--space-lg) 0;
+}
+
+.page th,
+.page td {
+  padding: var(--space-sm) var(--space-md);
+}
+
+/* ========================================
+   Related Projects Cards
+   ======================================== */
+
 .related-project {
   background: var(--bg-surface);
   border: 1px solid var(--border);
@@ -1161,7 +1176,7 @@ img {
   border-color: var(--accent-teal);
 }
 
-.related-project p:first-child {
+.related-project p {
   margin-bottom: var(--space-xs);
 }
 
@@ -1171,14 +1186,18 @@ img {
   font-size: var(--text-small);
 }
 
-/* Page tagline — final quote */
+/* ========================================
+   Page Tagline
+   ======================================== */
+
 .page-tagline {
   text-align: center;
   padding: var(--space-lg) 0;
-  margin-top: var(--space-md);
+  margin-top: var(--space-lg);
   color: var(--accent-amber);
   font-style: italic;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
 }
 
 /* ========================================
