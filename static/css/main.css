@@ -1096,7 +1096,7 @@ img {
   font-size: var(--text-small);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--bg-deep);
+  color: var(--bg-deep) !important;
   background: var(--accent-amber);
   padding: var(--space-sm) var(--space-md);
   border-radius: 4px;
