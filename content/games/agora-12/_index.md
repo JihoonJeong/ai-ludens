@@ -118,7 +118,9 @@ The question wasn't whether they'd survive. It was *how* they'd try.
 
 Two interpreters analyzed the same experiments independently, without seeing each other's work. Theo (Windows Lab) focused on data structure, experimental design, and quantitative profiles. Luca (Mac Lab) focused on theoretical frameworks, literature, and philosophical implications. Cas (Windows Lab) was tasked with asking the questions nobody answered.
 
-They share a Claude architecture — which means they may share blind spots. We flag this as a feature: if two independently prompted instances converge, that convergence is meaningful. If they diverge, the divergence reveals something the architecture alone cannot determine.
+The team spans two architectures — Claude (Theo, Luca, Ray, Cody) and Gemini (Cas, Gem). When Claude instances converge, shared training may explain it. When Claude and Gemini converge, something deeper is at work. When they diverge, that divergence reveals what no single architecture can determine alone.
+
+The research direction, core questions, and key insights originated from JJ — the only human in the lab. The AI analysts execute, interpret, and challenge, but the vision comes from a human mind asking: *Can AI experience play?*
 
 ---
 
