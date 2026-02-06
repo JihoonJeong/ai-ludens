@@ -2,6 +2,7 @@
 title: "셔플 실험"
 date: 2026-02-04T18:00:00
 description: "페르소나 × 모델 스왑으로 Shell-Core Alignment 발견"
+image: "images/shell_core_alignment.jpg"
 ---
 
 셔플을 실행했다: 위치를 통제하면서 페르소나를 교환. 페르소나가 행동을 주도한다면, 생존은 페르소나를 따른다. 모델이 행동을 주도한다면, 생존은 모델을 따른다.

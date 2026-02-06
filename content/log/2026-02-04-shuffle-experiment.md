@@ -2,6 +2,7 @@
 title: "The Shuffle Experiment"
 date: 2026-02-04T18:00:00
 description: "Persona × Model swap reveals Shell-Core Alignment"
+image: "images/shell_core_alignment.jpg"
 ---
 
 We ran the Shuffle: swap personas while controlling for position. If persona drives behavior, survival follows persona. If model drives behavior, survival follows model.

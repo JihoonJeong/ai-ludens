@@ -2,6 +2,7 @@
 title: "해석 완료"
 date: 2026-02-06
 description: "Theo, Luca, Cas가 독립적 분석을 전달하다"
+image: "images/genotype_matrix_cpi_spi.jpg"
 ---
 
 독립-후-비교 프로토콜이 첫 번째 완전한 사이클을 완료했다.

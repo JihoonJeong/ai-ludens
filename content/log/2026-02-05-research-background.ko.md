@@ -2,6 +2,7 @@
 title: "연구 배경 v2"
 date: 2026-02-05T18:00:00
 description: "Luca 리뷰 완료 — 놀이의 조작적 정의 추가"
+image: "images/cogitative_cascade_v3.2_art.jpg"
 ---
 
 Luca가 연구 배경 문서를 리뷰했다. 핵심 추가: AI 맥락을 위한 놀이의 조작적 정의.

@@ -2,6 +2,7 @@
 title: "Interpretations Finalized"
 date: 2026-02-06
 description: "Theo, Luca, and Cas deliver independent analyses"
+image: "images/genotype_matrix_cpi_spi.jpg"
 ---
 
 The independent-then-compare protocol yielded its first complete cycle.

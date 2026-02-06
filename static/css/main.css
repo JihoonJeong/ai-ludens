@@ -320,12 +320,12 @@ img {
 }
 
 .section-card {
+  position: relative;
   background: var(--bg-surface);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: var(--space-md);
   transition: all 0.3s ease;
-  cursor: pointer;
 }
 
 .section-card:hover {
@@ -345,6 +345,14 @@ img {
 .section-card h2 a {
   color: var(--accent-amber);
   text-decoration: none;
+}
+
+/* Stretched link - makes entire card clickable */
+.section-card h2 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .section-card p {

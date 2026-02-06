@@ -166,6 +166,11 @@ Mistral은 페르소나에 따라 80%p 스윙한다. EXAONE은 거의 움직이�
 
 #### 네 가지 DNA 프로필
 
+<div class="content-image centered">
+  <img src="/ai-ludens/images/dna_profile_cards.png" alt="네 가지 DNA 프로필" loading="lazy">
+  <div class="image-caption">네 가지 뚜렷한 행동 시그니처 — 같은 게임, 다른 기질</div>
+</div>
+
 **EXAONE — 과잉사고자.** 너무 많이 계획한다. 압박 하에서 생각을 멈추지 않는다 — *과잉* 사고하며, 결코 실행하지 않는 전략을 생성한다. 사상자를 낸 분석 마비.
 
 **Mistral — 카멜레온.** 말하다 죽은 모델 — 그리고 적절한 설정으로 95% 생존을 달성한 모델. 그것을 죽이는 특성(반응성)이 그것을 살린다. 그것이 플레이어인지 오작동하는 시스템인지는 Stage 2가 답해야 할 질문이다.

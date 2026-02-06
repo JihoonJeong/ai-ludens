@@ -2,6 +2,7 @@
 title: "Four-Shell Model v3.2"
 date: 2026-02-05
 description: "Theoretical framework substantially complete"
+image: "images/four_shell_model.png"
 ---
 
 Luca delivered the Four-Shell Model v3.2 — the theoretical framework that makes sense of what we've observed.

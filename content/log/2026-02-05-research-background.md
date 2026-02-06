@@ -2,6 +2,7 @@
 title: "Research Background v2"
 date: 2026-02-05T18:00:00
 description: "Luca review complete — operational definition of play added"
+image: "images/cogitative_cascade_v3.2_art.jpg"
 ---
 
 Luca reviewed the research background document. Key addition: an operational definition of play for AI contexts.

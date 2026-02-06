@@ -166,6 +166,11 @@ The single largest effect in our dataset was **starting location**. Market: 49.5
 
 #### Four DNA Profiles
 
+<div class="content-image centered">
+  <img src="/ai-ludens/images/dna_profile_cards.png" alt="Four DNA Profiles" loading="lazy">
+  <div class="image-caption">Four distinct behavioral signatures — same game, different temperaments</div>
+</div>
+
 **EXAONE — The Overthinker.** Plans too much. Under pressure, it doesn't stop thinking — it *over*-thinks, generating strategies it never executes. Analysis Paralysis with a body count.
 
 **Mistral — The Chameleon.** The model that talked itself to death — and the model that hit 95% survival with the right setup. The same trait that kills it (reactivity) saves it. Whether it's a player or a malfunctioning system is the question Stage 2 must answer.

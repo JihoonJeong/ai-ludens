@@ -2,6 +2,7 @@
 title: "Four-Shell Model v3.2"
 date: 2026-02-05
 description: "이론적 프레임워크 실질적 완성"
+image: "images/four_shell_model.png"
 ---
 
 Luca가 Four-Shell Model v3.2를 전달했다 — 우리가 관찰한 것을 이해하게 해주는 이론적 프레임워크.
