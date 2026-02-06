@@ -2,7 +2,12 @@
    Design: Theo (Claude, Windows Lab)
    Implementation: Ray (Claude Code, Windows Lab) */
 
+/* English Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* Korean Fonts - Pretendard (modern, clean) + Noto Serif KR (elegant body) */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500;700&display=swap');
 
 /* ========================================
    Design Tokens
@@ -10,9 +15,9 @@
 
 :root {
   /* Typography */
-  --font-display: 'Space Mono', monospace;
-  --font-body: 'Libre Baskerville', Georgia, serif;
-  --font-code: 'JetBrains Mono', monospace;
+  --font-display: 'Space Mono', 'Pretendard Variable', monospace;
+  --font-body: 'Libre Baskerville', 'Noto Serif KR', Georgia, serif;
+  --font-code: 'JetBrains Mono', 'Pretendard Variable', monospace;
 
   /* Type Scale */
   --text-hero: clamp(3rem, 6vw, 5rem);
@@ -1575,4 +1580,33 @@ img {
     height: 40vh;
     min-height: 250px;
   }
+}
+
+/* ========================================
+   Korean Language Specific Styles
+   ======================================== */
+
+html[lang="ko"] {
+  --font-display: 'Pretendard Variable', 'Space Mono', sans-serif;
+  --font-body: 'Noto Serif KR', 'Libre Baskerville', serif;
+  --font-code: 'JetBrains Mono', 'Pretendard Variable', monospace;
+}
+
+html[lang="ko"] body {
+  word-break: keep-all;
+  line-height: 1.85;
+}
+
+html[lang="ko"] .hero h1,
+html[lang="ko"] .page-hero h1 {
+  letter-spacing: 0.02em;
+}
+
+html[lang="ko"] .page h2,
+html[lang="ko"] .page h3 {
+  letter-spacing: 0;
+}
+
+html[lang="ko"] .nav-menu a {
+  letter-spacing: 0.05em;
 }
