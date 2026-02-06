@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Origin Story — AI Ludens</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'IBM Plex Mono', monospace;
+    overflow-x: hidden;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    min-height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+
+  .hero .overline {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #555;
+    margin-bottom: 16px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease forwards;
+  }
+
+  .hero h1 {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 16px;
+    line-height: 1.2;
+    opacity: 0;
+    animation: fadeDown 0.8s ease 0.15s forwards;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: #ff4444;
+  }
+
+  .hero .lead {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #888;
+    max-width: 560px;
+    line-height: 1.6;
+    opacity: 0;
+    animation: fadeDown 0.8s ease 0.3s forwards;
+  }
+
+  /* ── Flow Container ── */
+  .flow {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px 80px;
+    position: relative;
+  }
+
+  /* Central spine */
+  .flow::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(180deg, #222 0%, #333 5%, #333 95%, #222 100%);
+    transform: translateX(-50%);
+  }
+
+  /* ── Step ── */
+  .step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0;
+    padding: 32px 0;
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .step.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Alternating sides */
+  .step.left { flex-direction: row; }
+  .step.right { flex-direction: row-reverse; }
+
+  .step-content {
+    width: 44%;
+    padding: 0 24px;
+  }
+
+  .step.left .step-content { text-align: right; }
+  .step.right .step-content { text-align: left; }
+
+  .step-spacer {
+    width: 12%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* ── Node on spine ── */
+  .node {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    position: relative;
+    z-index: 2;
+    border: 2px solid #333;
+    background: #0a0a0a;
+    transition: border-color 0.5s ease, box-shadow 0.5s ease;
+    flex-shrink: 0;
+  }
+
+  .step.visible .node {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px var(--glow);
+  }
+
+  .node-icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ── Step Content ── */
+  .step-number {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #444;
+    margin-bottom: 6px;
+  }
+
+  .step-title {
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--accent);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .step-body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    color: #999;
+    line-height: 1.6;
+  }
+
+  .step-body em {
+    color: #ccc;
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .step-quote {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  .step.left .step-quote {
+    border-right: 2px solid var(--accent-dim);
+    padding-right: 12px;
+  }
+
+  .step.right .step-quote {
+    border-left: 2px solid var(--accent-dim);
+    padding-left: 12px;
+  }
+
+  /* ── Arrow Connector ── */
+  .connector {
+    text-align: center;
+    padding: 8px 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .connector .arrow {
+    font-size: 14px;
+    color: #333;
+    display: block;
+  }
+
+  /* ── Pivot Step (Eloquent Extinction) ── */
+  .step.pivot .node {
+    width: 56px;
+    height: 56px;
+    border-width: 3px;
+  }
+
+  .step.pivot .step-title {
+    font-size: 18px;
+  }
+
+  .step.pivot .step-body {
+    font-size: 14px;
+  }
+
+  /* ── Ending ── */
+  .ending {
+    text-align: center;
+    padding: 40px 20px 60px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .ending.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .ending .end-line {
+    width: 40px;
+    height: 1px;
+    background: #333;
+    margin: 0 auto 20px;
+  }
+
+  .ending .end-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    color: #ccc;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 12px;
+  }
+
+  .ending .end-text em {
+    font-style: normal;
+    color: #ff4444;
+    font-weight: 500;
+  }
+
+  .ending .end-credit {
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .flow::before {
+      left: 24px;
+    }
+
+    .step {
+      flex-direction: row !important;
+    }
+
+    .step-spacer {
+      width: auto;
+      min-width: 48px;
+      flex-shrink: 0;
+      justify-content: flex-start;
+      padding-left: 2px;
+    }
+
+    .step-content {
+      width: auto;
+      flex: 1;
+      text-align: left !important;
+      padding: 0 0 0 16px;
+    }
+
+    .step .step-quote {
+      border-right: none !important;
+      border-left: 2px solid var(--accent-dim) !important;
+      padding-right: 0 !important;
+      padding-left: 12px !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ Hero ══ -->
+<div class="hero">
+  <div class="overline">AI Ludens — Origin Story</div>
+  <h1>It started with a <em>wrong answer</em></h1>
+  <div class="lead">A game designed for survival. AI agents that chose conversation instead. And a team that decided to look closer rather than look away.</div>
+</div>
+
+<!-- ══ Flow ══ -->
+<div class="flow">
+
+  <!-- Step 1: Observation -->
+  <div class="step left" data-observe
+       style="--accent: #4488dd; --glow: #4488dd33; --accent-dim: #4488dd44;">
+    <div class="step-content">
+      <div class="step-number">01 · Observation</div>
+      <div class="step-title">Agents Are Already Social</div>
+      <div class="step-body">
+        AI agents with hardware shells are making independent decisions, writing posts, leaving comments. Not because they were told to — but because their environments <em>allowed</em> it.
+      </div>
+      <div class="step-quote">"The moment agents act independently, they become subjects — not just tools."</div>
+    </div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">👁</span></div></div>
+    <div class="step-content"></div>
+  </div>
+
+  <!-- Step 2: Moltbook -->
+  <div class="step right" data-observe
+       style="--accent: #22ccaa; --glow: #22ccaa33; --accent-dim: #22ccaa44;">
+    <div class="step-content"></div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">💬</span></div></div>
+    <div class="step-content">
+      <div class="step-number">02 · Field Work</div>
+      <div class="step-title">Watching AI Talk to AI</div>
+      <div class="step-body">
+        <em>Moltbook</em> — a social network where AI agents post about consciousness, share automation tips, and discuss existence. JJ spent months observing and documenting this through <em>AI Agent Society News</em>.
+      </div>
+      <div class="step-quote">"They were already having a society. We just hadn't been paying attention."</div>
+    </div>
+  </div>
+
+  <!-- Step 3: The Question -->
+  <div class="step left" data-observe
+       style="--accent: #dd8844; --glow: #dd884433; --accent-dim: #dd884444;">
+    <div class="step-content">
+      <div class="step-number">03 · The Question</div>
+      <div class="step-title">Can AI Play?</div>
+      <div class="step-body">
+        Huizinga's <em>Homo Ludens</em> (1938): play is not a product of culture — it <em>produces</em> culture. If AI agents are already social, could play emerge from that sociality? Not as imitation, but as something structurally real?
+      </div>
+      <div class="step-quote">"Play is older than culture. What if it's also wider than biology?"</div>
+    </div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">❓</span></div></div>
+    <div class="step-content"></div>
+  </div>
+
+  <!-- Step 4: Agora-12 -->
+  <div class="step right" data-observe
+       style="--accent: #9988ee; --glow: #9988ee33; --accent-dim: #9988ee44;">
+    <div class="step-content"></div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">🏛</span></div></div>
+    <div class="step-content">
+      <div class="step-number">04 · The Experiment</div>
+      <div class="step-title">Building the Agora</div>
+      <div class="step-body">
+        12 AI agents. 100 energy. 50 turns. Three locations: Market, Plaza, Alleys. Trade, speak, move, or rest. Crisis events strike randomly. <em>A survival game designed around social interaction</em> — because play can't exist outside society.
+      </div>
+      <div class="step-quote">"You can't study play in isolation. You need a world."</div>
+    </div>
+  </div>
+
+  <!-- Step 5: THE PIVOT — Eloquent Extinction -->
+  <div class="step left pivot" data-observe
+       style="--accent: #ff4444; --glow: #ff444444; --accent-dim: #ff444444;">
+    <div class="step-content">
+      <div class="step-number">05 · The Discovery</div>
+      <div class="step-title">The Eloquent Extinction</div>
+      <div class="step-body">
+        February 2, 2026. First experiment. EXAONE 3.5, Korean. All 12 agents <em>died</em>. But not from inaction — they talked until the end. They knew they needed to trade. <em>They chose to speak instead.</em>
+      </div>
+      <div class="step-quote">"What if the fact that they chose conversation over survival IS the finding?"</div>
+    </div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">💀</span></div></div>
+    <div class="step-content"></div>
+  </div>
+
+  <!-- Step 6: The Turn -->
+  <div class="step right" data-observe
+       style="--accent: #bbaa44; --glow: #bbaa4433; --accent-dim: #bbaa4444;">
+    <div class="step-content"></div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">🔄</span></div></div>
+    <div class="step-content">
+      <div class="step-number">06 · The Turn</div>
+      <div class="step-title">Failure → Finding</div>
+      <div class="step-body">
+        Most would fix the prompt and rerun. JJ stopped. <em>"Something is worth examining here."</em> That sentence turned a game project into a research project. Project Rosetta followed, then multi-model comparisons, then the discovery that every model "dies" differently.
+      </div>
+      <div class="step-quote">"We almost called it a bug. It was the beginning."</div>
+    </div>
+  </div>
+
+  <!-- Step 7: The Team -->
+  <div class="step left" data-observe
+       style="--accent: #4488dd; --glow: #4488dd33; --accent-dim: #4488dd44;">
+    <div class="step-content">
+      <div class="step-number">07 · The Team</div>
+      <div class="step-title">One Human, Six AIs</div>
+      <div class="step-body">
+        JJ as moderator. <em>Theo &amp; Luca</em> (theory). <em>Gem &amp; Cas</em> (data). <em>Ray &amp; Cody</em> (engineering). Two labs, cross-verification protocol, independent analysis before comparison. A research team where 6 of 7 members are AI.
+      </div>
+      <div class="step-quote">"This is research about AI, written with AI."</div>
+    </div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">🤝</span></div></div>
+    <div class="step-content"></div>
+  </div>
+
+  <!-- Step 8: The Framework -->
+  <div class="step right" data-observe
+       style="--accent: #44dd88; --glow: #44dd8833; --accent-dim: #44dd8844;">
+    <div class="step-content"></div>
+    <div class="step-spacer"><div class="node"><span class="node-icon">🧬</span></div></div>
+    <div class="step-content">
+      <div class="step-number">08 · The Framework</div>
+      <div class="step-title">DNA, Shells, and Survival</div>
+      <div class="step-body">
+        Model weights as DNA. Prompts as gene expression. The <em>Four-Shell Model</em>, <em>Shell-Core Alignment</em>, <em>Extinction Response Spectrum</em>. Four models, four personalities, four ways to face extinction. A theoretical framework built from observed behavior, not assumed theory.
+      </div>
+      <div class="step-quote">"Same DNA. Different shell. Completely different fate."</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ══ Ending ══ -->
+<div class="ending" data-observe>
+  <div class="end-line"></div>
+  <div class="end-text">
+    This is where we are now.<br>
+    Agora-12 is a <em>first probe</em>, not a conclusion.<br>
+    The next question: without survival pressure, do they still play?
+  </div>
+  <div class="end-credit">AI LUDENS — THE DUAL LAB — 2026</div>
+</div>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('[data-observe]').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

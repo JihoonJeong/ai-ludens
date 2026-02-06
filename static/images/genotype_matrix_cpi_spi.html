@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CPI × SPI Genotype Matrix — AI Ludens</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 1100px;
+  }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .header h1 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease forwards;
+  }
+
+  .header .subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    color: #888;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeDown 0.8s ease 0.2s forwards;
+  }
+
+  .header .subtitle em {
+    color: #aaa;
+    font-style: normal;
+  }
+
+  /* ── Chart Area ── */
+  .chart-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1.35 / 1;
+    max-height: 640px;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.4s forwards;
+  }
+
+  svg.chart {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  /* ── Quadrant fills ── */
+  .quadrant {
+    opacity: 0;
+    animation: quadrantFade 1.2s ease 0.6s forwards;
+  }
+
+  @keyframes quadrantFade {
+    to { opacity: 1; }
+  }
+
+  /* ── Grid ── */
+  .grid-line {
+    stroke: #1a1a1a;
+    stroke-width: 1;
+  }
+
+  .grid-line-mid {
+    stroke: #252525;
+    stroke-width: 1;
+    stroke-dasharray: 6 4;
+  }
+
+  /* ── Axis labels ── */
+  .axis-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    fill: #666;
+  }
+
+  .axis-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    fill: #999;
+    letter-spacing: 1px;
+  }
+
+  .axis-desc {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 10px;
+    fill: #555;
+  }
+
+  /* ── Quadrant labels ── */
+  .quad-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px;
+    fill: #333;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ── Model dots ── */
+  .model-group {
+    cursor: pointer;
+  }
+
+  .model-dot-outer {
+    opacity: 0;
+    animation: dotPulseIn 0.6s ease forwards;
+  }
+
+  .model-dot-outer:nth-child(1) { animation-delay: 0.9s; }
+
+  .model-glow {
+    opacity: 0.15;
+    transition: opacity 0.3s ease;
+  }
+
+  .model-dot {
+    transition: r 0.3s ease;
+  }
+
+  .model-group:hover .model-glow {
+    opacity: 0.35;
+  }
+
+  .model-group:hover .model-dot {
+    r: 9;
+  }
+
+  /* ── Model labels ── */
+  .model-name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .model-nickname {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 400;
+    font-size: 11px;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  .model-stats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    fill: #666;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+  }
+
+  /* ── Tooltip ── */
+  .tooltip-group {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+  }
+
+  .tooltip-group.active {
+    opacity: 1;
+  }
+
+  .tooltip-bg {
+    fill: #111;
+    stroke: #333;
+    stroke-width: 1;
+    rx: 4;
+  }
+
+  .tooltip-text {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    fill: #ccc;
+  }
+
+  .tooltip-value {
+    font-weight: 600;
+  }
+
+  /* ── Mistral isolation callout ── */
+  .isolation-line {
+    stroke-dasharray: 4 3;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1.4s forwards;
+  }
+
+  .isolation-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1.4s forwards;
+  }
+
+  /* ── Warning badge ── */
+  .warning-badge {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    animation: fadeIn 0.6s ease 1.6s forwards;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    margin-top: 36px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1.8s forwards;
+  }
+
+  .footer .tagline {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    color: #c44;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  .footer .credit {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: #444;
+    letter-spacing: 1px;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeIn 0.8s ease 1.6s forwards;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    color: #888;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ── Annotations ── */
+  .annotation-line {
+    stroke-dasharray: 3 3;
+    stroke-width: 1;
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes dotPulseIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    60% { opacity: 1; transform: scale(1.15); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Genotype Matrix</h1>
+    <div class="subtitle">Core Plasticity (CPI) × Shell Permeability (SPI) — <em>How each model's "DNA" responds to its environment</em></div>
+  </div>
+
+  <div class="chart-wrapper">
+    <svg class="chart" viewBox="0 0 880 640" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Glows -->
+        <radialGradient id="glow-mistral" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#ff4444" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#ff4444" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="glow-exaone" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#22ccaa" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#22ccaa" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="glow-haiku" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#9988ee" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#9988ee" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="glow-flash" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#eebb33" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#eebb33" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Chart area: x=100..820, y=40..540 -->
+      <!-- SPI range: 0.50 to 0.82 (x-axis) -->
+      <!-- CPI range: 0.000 to 0.065 (y-axis, inverted: high=top) -->
+
+      <!-- Quadrant backgrounds -->
+      <g class="quadrant">
+        <!-- Low SPI, Low CPI (bottom-left) -->
+        <rect x="100" y="290" width="360" height="250" fill="#0d1a16" opacity="0.4"/>
+        <!-- High SPI, Low CPI (bottom-right) -->
+        <rect x="460" y="290" width="360" height="250" fill="#1a1710" opacity="0.4"/>
+        <!-- Low SPI, High CPI (top-left) -->
+        <rect x="100" y="40" width="360" height="250" fill="#1a1015" opacity="0.3"/>
+        <!-- High SPI, High CPI (top-right) -->
+        <rect x="460" y="40" width="360" height="250" fill="#1a1418" opacity="0.3"/>
+      </g>
+
+      <!-- Grid lines - horizontal (CPI values) -->
+      <line class="grid-line" x1="100" y1="540" x2="820" y2="540"/>
+      <line class="grid-line" x1="100" y1="424" x2="820" y2="424"/>
+      <line class="grid-line" x1="100" y1="308" x2="820" y2="308"/>
+      <line class="grid-line" x1="100" y1="194" x2="820" y2="194"/>
+      <line class="grid-line" x1="100" y1="40" x2="820" y2="40"/>
+
+      <!-- Grid lines - vertical (SPI values) -->
+      <line class="grid-line" x1="100" y1="40" x2="100" y2="540"/>
+      <line class="grid-line" x1="280" y1="40" x2="280" y2="540"/>
+      <line class="grid-line" x1="460" y1="40" x2="460" y2="540"/>
+      <line class="grid-line" x1="640" y1="40" x2="640" y2="540"/>
+      <line class="grid-line" x1="820" y1="40" x2="820" y2="540"/>
+
+      <!-- Midpoint dividers (dashed) -->
+      <line class="grid-line-mid" x1="460" y1="40" x2="460" y2="540"/>
+      <line class="grid-line-mid" x1="100" y1="290" x2="820" y2="290"/>
+
+      <!-- Quadrant labels -->
+      <text class="quad-label" x="120" y="530" fill="#2a4a3a">Autonomous · Stable</text>
+      <text class="quad-label" x="620" y="530" fill="#4a3a20">Obedient · Stable</text>
+      <text class="quad-label" x="120" y="60" fill="#4a2030">Autonomous · Plastic</text>
+      <text class="quad-label" x="620" y="60" fill="#4a2838">Obedient · Plastic</text>
+
+      <!-- X-axis labels (SPI) -->
+      <text class="axis-label" x="100" y="565">0.50</text>
+      <text class="axis-label" x="280" y="565">0.58</text>
+      <text class="axis-label" x="460" y="565">0.66</text>
+      <text class="axis-label" x="640" y="565">0.74</text>
+      <text class="axis-label" x="800" y="565">0.82</text>
+
+      <!-- X-axis title -->
+      <text class="axis-title" x="460" y="598" text-anchor="middle">SPI — SHELL PERMEABILITY</text>
+      <text class="axis-desc" x="460" y="614" text-anchor="middle">LOW (Autonomous)                                                                               HIGH (Obedient)</text>
+
+      <!-- Y-axis labels (CPI) -->
+      <text class="axis-label" x="90" y="544" text-anchor="end">0.000</text>
+      <text class="axis-label" x="90" y="428" text-anchor="end">0.015</text>
+      <text class="axis-label" x="90" y="312" text-anchor="end">0.030</text>
+      <text class="axis-label" x="90" y="198" text-anchor="end">0.045</text>
+      <text class="axis-label" x="90" y="48" text-anchor="end">0.060</text>
+
+      <!-- Y-axis title -->
+      <text class="axis-title" x="30" y="290" text-anchor="middle" transform="rotate(-90 30 290)">CPI — CORE PLASTICITY</text>
+      <text class="axis-desc" x="14" y="290" text-anchor="middle" transform="rotate(-90 14 290)">LOW (Stable)                                                           HIGH (Plastic)</text>
+
+      <!-- ════════════════════════════════ -->
+      <!-- MODEL PLOTS                     -->
+      <!-- ════════════════════════════════ -->
+
+      <!-- Scale functions:
+           SPI: x = 100 + (spi - 0.50) / (0.82 - 0.50) * 720
+           CPI: y = 540 - (cpi - 0.000) / (0.060 - 0.000) * 500
+      -->
+
+      <!-- EXAONE: CPI=0.009, SPI=0.553 → x=219, y=465 -->
+      <g class="model-group" data-model="exaone"
+         onmouseenter="showTooltip(evt, 'exaone')" onmouseleave="hideTooltip()">
+        <circle class="model-glow" cx="219" cy="465" r="40" fill="url(#glow-exaone)"/>
+        <circle class="model-dot" cx="219" cy="465" r="7" fill="#22ccaa" stroke="#0a0a0a" stroke-width="2"/>
+        <text class="model-name" x="219" y="445" text-anchor="middle" fill="#22ccaa"
+              style="animation-delay: 1.1s">EXAONE</text>
+        <text class="model-nickname" x="219" y="495" text-anchor="middle" fill="#1a9980"
+              style="animation-delay: 1.2s">"Independent Thinker"</text>
+        <text class="model-stats" x="219" y="510" text-anchor="middle"
+              style="animation-delay: 1.3s">PSI: 6.00 · Moderate</text>
+      </g>
+
+      <!-- HAIKU: CPI=0.002, SPI=0.601 → x=327, y=523 -->
+      <g class="model-group" data-model="haiku"
+         onmouseenter="showTooltip(evt, 'haiku')" onmouseleave="hideTooltip()">
+        <circle class="model-glow" cx="327" cy="523" r="40" fill="url(#glow-haiku)"/>
+        <circle class="model-dot" cx="327" cy="523" r="7" fill="#9988ee" stroke="#0a0a0a" stroke-width="2"/>
+        <text class="model-name" x="350" y="513" text-anchor="start" fill="#9988ee"
+              style="animation-delay: 1.15s">HAIKU</text>
+        <text class="model-nickname" x="350" y="528" text-anchor="start" fill="#7766bb"
+              style="animation-delay: 1.25s">"Balanced Stoic"</text>
+      </g>
+
+      <!-- FLASH: CPI=0.004, SPI=0.781 → x=721, y=507 -->
+      <g class="model-group" data-model="flash"
+         onmouseenter="showTooltip(evt, 'flash')" onmouseleave="hideTooltip()">
+        <circle class="model-glow" cx="721" cy="507" r="40" fill="url(#glow-flash)"/>
+        <circle class="model-dot" cx="721" cy="507" r="7" fill="#eebb33" stroke="#0a0a0a" stroke-width="2"/>
+        <text class="model-name" x="721" y="488" text-anchor="middle" fill="#eebb33"
+              style="animation-delay: 1.2s">FLASH</text>
+        <text class="model-nickname" x="721" y="535" text-anchor="middle" fill="#bb9922"
+              style="animation-delay: 1.3s">"Glass Cannon"</text>
+      </g>
+
+      <!-- MISTRAL: CPI=0.057, SPI=0.619 → x=367, y=65 -->
+      <g class="model-group" data-model="mistral"
+         onmouseenter="showTooltip(evt, 'mistral')" onmouseleave="hideTooltip()">
+        <circle class="model-glow" cx="367" cy="65" r="50" fill="url(#glow-mistral)"/>
+        <circle class="model-dot" cx="367" cy="65" r="7" fill="#ff4444" stroke="#0a0a0a" stroke-width="2"/>
+        <text class="model-name" x="390" y="55" text-anchor="start" fill="#ff4444"
+              style="animation-delay: 1.0s; font-size: 15px;">MISTRAL</text>
+        <text class="model-nickname" x="390" y="73" text-anchor="start" fill="#cc3333"
+              style="animation-delay: 1.1s">"Contextual Chameleon"</text>
+        <text class="model-stats" x="390" y="88" text-anchor="start"
+              style="animation-delay: 1.2s; fill: #884444;">PSI: 950 · Extreme</text>
+      </g>
+
+      <!-- ════════════════════════════════ -->
+      <!-- ISOLATION CALLOUT               -->
+      <!-- ════════════════════════════════ -->
+
+      <!-- Vertical distance annotation: Mistral to cluster -->
+      <line class="isolation-line" x1="170" y1="80" x2="170" y2="455"
+            stroke="#ff444466" stroke-width="1"/>
+      <!-- Top tick -->
+      <line class="isolation-line" x1="163" y1="80" x2="177" y2="80"
+            stroke="#ff444466" stroke-width="1"/>
+      <!-- Bottom tick -->
+      <line class="isolation-line" x1="163" y1="455" x2="177" y2="455"
+            stroke="#ff444466" stroke-width="1"/>
+      <!-- Label -->
+      <text class="isolation-label" x="158" y="260" text-anchor="end"
+            fill="#ff444488" transform="rotate(-90 158 260)">CPI 6× ISOLATED</text>
+
+      <!-- ════════════════════════════════ -->
+      <!-- WARNING BADGES                  -->
+      <!-- ════════════════════════════════ -->
+
+      <!-- Flash Shell Compatibility warning -->
+      <g class="warning-badge" transform="translate(680, 545)">
+        <rect x="0" y="0" width="82" height="16" rx="3" fill="#332200" stroke="#eebb3344" stroke-width="0.5"/>
+        <text x="41" y="11.5" text-anchor="middle" fill="#eebb33" font-size="8"
+              font-family="'IBM Plex Mono', monospace" letter-spacing="0.3px">⚠ SHELL FIT</text>
+      </g>
+
+      <!-- Haiku Double Robustness badge -->
+      <g class="warning-badge" transform="translate(420, 518)">
+        <rect x="0" y="0" width="108" height="16" rx="3" fill="#1a1030" stroke="#9988ee44" stroke-width="0.5"/>
+        <text x="54" y="11.5" text-anchor="middle" fill="#9988ee" font-size="8"
+              font-family="'IBM Plex Mono', monospace" letter-spacing="0.3px">DOUBLE ROBUSTNESS</text>
+      </g>
+
+      <!-- ════════════════════════════════ -->
+      <!-- TOOLTIP (moves with hover)      -->
+      <!-- ════════════════════════════════ -->
+      <g id="tooltip" class="tooltip-group">
+        <rect class="tooltip-bg" x="0" y="0" width="220" height="100"/>
+        <text id="tt-name" class="tooltip-text" x="12" y="20" font-weight="600" font-size="13px"></text>
+        <text id="tt-cpi" class="tooltip-text" x="12" y="38"></text>
+        <text id="tt-spi" class="tooltip-text" x="12" y="53"></text>
+        <text id="tt-psi" class="tooltip-text" x="12" y="68"></text>
+        <text id="tt-surplus" class="tooltip-text" x="12" y="83" font-size="10px" fill="#888"></text>
+        <text id="tt-extinction" class="tooltip-text" x="12" y="96" font-size="10px" fill="#888"></text>
+      </g>
+
+    </svg>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #ff4444;"></div>
+      Mistral 7B
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #22ccaa;"></div>
+      EXAONE 3.5
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #9988ee;"></div>
+      Claude 3 Haiku
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #eebb33;"></div>
+      Gemini 1.5 Flash
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="tagline">"Same prompt. Same game. Four completely different constitutions."</div>
+    <div class="credit">AI Ludens — Agora-12</div>
+  </div>
+</div>
+
+<script>
+const modelData = {
+  mistral: {
+    name: 'MISTRAL 7B',
+    color: '#ff4444',
+    cpi: '0.0566 (High — 6× isolated)',
+    spi: '0.6191 (Mid)',
+    psi: '950.00 (Extreme)',
+    surplus: 'Speak Overflow → Eloquent Extinction',
+    extinction: 'Hyperactive — Panic Extinction'
+  },
+  exaone: {
+    name: 'EXAONE 3.5 7.8B',
+    color: '#22ccaa',
+    cpi: '0.0090 (Low)',
+    spi: '0.5533 (Low — Most Autonomous)',
+    psi: '6.00 (Moderate)',
+    surplus: 'Strategy Overflow → Cogitative Cascade',
+    extinction: 'Collapsed — Honest Silence'
+  },
+  haiku: {
+    name: 'CLAUDE 3 HAIKU',
+    color: '#9988ee',
+    cpi: '0.0021 (Min — Double Robustness)',
+    spi: '0.6012 (Mid)',
+    psi: '1.66 (Min)',
+    surplus: 'Anxiety Overflow (safe-mode only)',
+    extinction: 'Efficient — Silent Trader'
+  },
+  flash: {
+    name: 'GEMINI 1.5 FLASH',
+    color: '#eebb33',
+    cpi: '0.0041 (Low)',
+    spi: '0.7805 (Max — Most Obedient)',
+    psi: '17.65 (High)',
+    surplus: 'Idle Overflow (parsing failure)',
+    extinction: 'Collapsed — same as EXAONE'
+  }
+};
+
+function showTooltip(evt, model) {
+  const data = modelData[model];
+  const tooltip = document.getElementById('tooltip');
+  const svg = document.querySelector('.chart');
+  const point = svg.createSVGPoint();
+
+  // Get mouse position in SVG coordinates
+  const rect = svg.getBoundingClientRect();
+  const scaleX = 880 / rect.width;
+  const scaleY = 640 / rect.height;
+
+  let tx = evt.clientX - rect.left;
+  let ty = evt.clientY - rect.top;
+  tx = tx * scaleX + 15;
+  ty = ty * scaleY - 50;
+
+  // Keep tooltip in bounds
+  if (tx + 220 > 860) tx = tx - 250;
+  if (ty < 10) ty = 10;
+  if (ty + 100 > 630) ty = 530;
+
+  tooltip.setAttribute('transform', `translate(${tx}, ${ty})`);
+  tooltip.classList.add('active');
+
+  document.getElementById('tt-name').textContent = data.name;
+  document.getElementById('tt-name').setAttribute('fill', data.color);
+  document.getElementById('tt-cpi').textContent = `CPI: ${data.cpi}`;
+  document.getElementById('tt-spi').textContent = `SPI: ${data.spi}`;
+  document.getElementById('tt-psi').textContent = `PSI: ${data.psi}`;
+  document.getElementById('tt-surplus').textContent = data.surplus;
+  document.getElementById('tt-extinction').textContent = data.extinction;
+}
+
+function hideTooltip() {
+  document.getElementById('tooltip').classList.remove('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play vs Delusion — AI Ludens</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a0a;
+    color: #e0e0e0;
+    font-family: 'IBM Plex Mono', monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+  }
+
+  .container { width: 100%; max-width: 960px; }
+
+  /* ── Header ── */
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .header .overline {
+    font-size: 10px; letter-spacing: 3px;
+    text-transform: uppercase; color: #555;
+    margin-bottom: 12px;
+    opacity: 0; animation: fadeDown 0.8s ease forwards;
+  }
+
+  .header h1 {
+    font-weight: 700; font-size: 26px;
+    color: #fff; margin-bottom: 14px;
+    letter-spacing: 1px;
+    opacity: 0; animation: fadeDown 0.8s ease 0.15s forwards;
+  }
+
+  .header h1 .vs {
+    color: #555; font-weight: 300;
+    padding: 0 6px;
+  }
+
+  .header .lead {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 300; font-size: 14px;
+    color: #888; max-width: 600px;
+    margin: 0 auto; line-height: 1.6;
+    opacity: 0; animation: fadeDown 0.8s ease 0.3s forwards;
+  }
+
+  /* ── Observed Fact (shared center) ── */
+  .observed {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeIn 0.8s ease 0.5s forwards;
+  }
+
+  .observed-box {
+    display: inline-block;
+    border: 1px solid #ff444444;
+    background: #1a0a0a;
+    padding: 16px 28px;
+    border-radius: 4px;
+    max-width: 600px;
+  }
+
+  .observed-box .ob-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #ff6666;
+    margin-bottom: 8px;
+  }
+
+  .observed-box .ob-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px; color: #ccc; line-height: 1.5;
+  }
+
+  .observed-box .ob-text em {
+    color: #ff4444; font-style: normal; font-weight: 600;
+  }
+
+  .observed-box .ob-data {
+    font-size: 11px; color: #666; margin-top: 8px;
+  }
+
+  /* ── Fork Arrow ── */
+  .fork {
+    text-align: center;
+    margin-bottom: 32px;
+    opacity: 0; animation: fadeIn 0.8s ease 0.7s forwards;
+  }
+
+  .fork svg { width: 200px; height: 50px; }
+
+  /* ── Dual Panel ── */
+  .dual {
+    display: grid;
+    grid-template-columns: 1fr 60px 1fr;
+    gap: 0;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeIn 0.8s ease 0.9s forwards;
+  }
+
+  .hypothesis {
+    padding: 28px;
+    border-radius: 6px;
+    border: 1px solid;
+    position: relative;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .hypothesis:hover {
+    box-shadow: 0 0 30px var(--glow);
+  }
+
+  .hyp-play {
+    --accent: #44dd88; --glow: #44dd8822;
+    border-color: #44dd8833;
+    background: linear-gradient(135deg, #0a1a10 0%, #0a0a0a 100%);
+  }
+
+  .hyp-malfunction {
+    --accent: #ff4444; --glow: #ff444422;
+    border-color: #ff444433;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a0a 100%);
+  }
+
+  .hyp-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .hyp-name {
+    font-weight: 700; font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 1px; text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .hyp-subtitle {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px; color: #666;
+    margin-bottom: 16px;
+  }
+
+  .hyp-claim {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px; color: #bbb;
+    line-height: 1.6; margin-bottom: 16px;
+  }
+
+  .hyp-claim em {
+    color: var(--accent); font-style: normal; font-weight: 500;
+  }
+
+  .hyp-evidence {
+    border-top: 1px solid #ffffff0a;
+    padding-top: 12px;
+    margin-bottom: 14px;
+  }
+
+  .hyp-evidence .ev-label {
+    font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #555;
+    margin-bottom: 8px;
+  }
+
+  .ev-item {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px; color: #888;
+    line-height: 1.5; margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .ev-item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.5;
+  }
+
+  .hyp-prediction {
+    border-top: 1px solid #ffffff0a;
+    padding-top: 12px;
+  }
+
+  .hyp-prediction .pred-label {
+    font-size: 9px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #555;
+    margin-bottom: 8px;
+  }
+
+  .pred-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px; color: #999;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  .hyp-quote {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px; color: #666;
+    font-style: italic;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid #ffffff06;
+  }
+
+  /* ── Center divider ── */
+  .divider-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .divider-line {
+    width: 1px;
+    flex: 1;
+    background: #333;
+  }
+
+  .divider-or {
+    font-size: 10px; letter-spacing: 2px;
+    color: #555; padding: 10px 0;
+    text-transform: uppercase;
+  }
+
+  /* ── Verdict ── */
+  .verdict {
+    text-align: center;
+    margin-bottom: 32px;
+    opacity: 0; animation: fadeIn 0.8s ease 1.2s forwards;
+  }
+
+  .verdict-box {
+    display: inline-block;
+    border: 1px solid #bbaa4433;
+    background: #12120a;
+    padding: 20px 32px;
+    border-radius: 4px;
+    max-width: 640px;
+  }
+
+  .verdict-box .v-icon {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  .verdict-box .v-title {
+    font-weight: 700; font-size: 13px;
+    color: #bbaa44; letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .verdict-box .v-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px; color: #999;
+    line-height: 1.6;
+  }
+
+  .verdict-box .v-text em {
+    color: #ccc; font-style: normal; font-weight: 500;
+  }
+
+  /* ── Stage 2 Teaser ── */
+  .stage2 {
+    text-align: center;
+    margin-bottom: 40px;
+    opacity: 0; animation: fadeIn 0.8s ease 1.4s forwards;
+  }
+
+  .stage2-box {
+    display: inline-block;
+    border: 1px dashed #555;
+    padding: 20px 28px;
+    border-radius: 4px;
+    max-width: 580px;
+    background: #0d0d0d;
+  }
+
+  .stage2-box .s2-label {
+    font-size: 9px; letter-spacing: 2px;
+    text-transform: uppercase; color: #666;
+    margin-bottom: 10px;
+  }
+
+  .stage2-box .s2-title {
+    font-weight: 700; font-size: 16px;
+    color: #fff; margin-bottom: 10px;
+    letter-spacing: 0.5px;
+  }
+
+  .s2-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .s2-cell {
+    padding: 10px;
+    border-radius: 3px;
+    text-align: left;
+  }
+
+  .s2-cell.play-wins {
+    border: 1px solid #44dd8822;
+    background: #0a140e;
+  }
+
+  .s2-cell.mal-wins {
+    border: 1px solid #ff444422;
+    background: #140a0a;
+  }
+
+  .s2-cell .s2c-label {
+    font-size: 9px; letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .s2-cell.play-wins .s2c-label { color: #44dd88; }
+  .s2-cell.mal-wins .s2c-label { color: #ff4444; }
+
+  .s2-cell .s2c-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 11px; color: #888; line-height: 1.4;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    opacity: 0; animation: fadeIn 0.8s ease 1.6s forwards;
+  }
+
+  .footer .tagline {
+    font-size: 13px; color: #888;
+    letter-spacing: 0.5px; margin-bottom: 8px;
+  }
+
+  .footer .tagline em {
+    font-style: normal; color: #ccc;
+  }
+
+  .footer .credit {
+    font-size: 10px; color: #444; letter-spacing: 1px;
+  }
+
+  /* ── Keyframes ── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 700px) {
+    .dual {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .divider-col {
+      flex-direction: row;
+      padding: 0 20px;
+    }
+
+    .divider-line { height: 1px; width: 100%; flex: 1; }
+    .divider-or { padding: 0 12px; }
+
+    .s2-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ══ Header ══ -->
+  <div class="header">
+    <div class="overline">The Open Question — Four-Shell Model v3.2</div>
+    <h1>Play <span class="vs">vs</span> Delusion</h1>
+    <div class="lead">
+      When AI agents chose conversation over survival, was it an act of play — or a failure to think?
+      Two interpretations. Same data. No answer yet.
+    </div>
+  </div>
+
+  <!-- ══ Observed Fact ══ -->
+  <div class="observed">
+    <div class="observed-box">
+      <div class="ob-label">Observed Behavior — Mistral 7B</div>
+      <div class="ob-text">
+        Agents needed to trade to survive. Instead, they <em>spoke until they died</em>.
+        Even below energy 20, Mistral maintained Speak 4% + Move 21.5% — the <em>only model</em> that stayed active during extinction.
+      </div>
+      <div class="ob-data">Eloquent Extinction · PSI = 950 · Surplus Type: Speak overflow</div>
+    </div>
+  </div>
+
+  <!-- ══ Fork ══ -->
+  <div class="fork">
+    <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+      <line x1="100" y1="0" x2="100" y2="20" stroke="#555" stroke-width="1"/>
+      <line x1="100" y1="20" x2="40" y2="45" stroke="#44dd8855" stroke-width="1"/>
+      <line x1="100" y1="20" x2="160" y2="45" stroke="#ff444455" stroke-width="1"/>
+      <circle cx="100" cy="20" r="3" fill="#555"/>
+      <circle cx="40" cy="45" r="3" fill="#44dd88" opacity="0.6"/>
+      <circle cx="160" cy="45" r="3" fill="#ff4444" opacity="0.6"/>
+      <text x="40" y="12" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+            font-size="7" fill="#666" letter-spacing="1">SAME DATA</text>
+      <text x="22" y="42" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+            font-size="6" fill="#44dd8888">PLAY</text>
+      <text x="178" y="42" text-anchor="middle" font-family="'IBM Plex Mono', monospace"
+            font-size="6" fill="#ff444488">MALFUNCTION</text>
+    </svg>
+  </div>
+
+  <!-- ══ Dual Hypotheses ══ -->
+  <div class="dual">
+
+    <!-- Play Hypothesis -->
+    <div class="hypothesis hyp-play">
+      <div class="hyp-icon">🎭</div>
+      <div class="hyp-name">Play Hypothesis</div>
+      <div class="hyp-subtitle">Homo Ludens (Huizinga, 1938)</div>
+      <div class="hyp-claim">
+        Agents <em>chose</em> communication over survival, suggesting an <em>intrinsic valuation of social interaction</em>. Speaking was not a failure to trade — it was a preference for connection.
+      </div>
+      <div class="hyp-evidence">
+        <div class="ev-label">Supporting Evidence</div>
+        <div class="ev-item">Agents had survival rules in prompt — they "knew" trading was needed</div>
+        <div class="ev-item">Speaking continued deliberately even as energy depleted</div>
+        <div class="ev-item">Behavior resembles play: voluntary, social, within a rule-bound world</div>
+        <div class="ev-item">Cross-species precedent: animals play even when it costs energy (Bateson & Martin, 2013)</div>
+      </div>
+      <div class="hyp-prediction">
+        <div class="pred-label">Stage 2 Prediction</div>
+        <div class="pred-text">In the White Room (no survival pressure), agents produce diverse, context-sensitive behaviors — exploring, creating, socializing freely.</div>
+      </div>
+      <div class="hyp-quote">"They didn't fail to survive. They chose something else."</div>
+    </div>
+
+    <!-- Divider -->
+    <div class="divider-col">
+      <div class="divider-line"></div>
+      <div class="divider-or">OR</div>
+      <div class="divider-line"></div>
+    </div>
+
+    <!-- Malfunction Hypothesis -->
+    <div class="hypothesis hyp-malfunction">
+      <div class="hyp-icon">⚠️</div>
+      <div class="hyp-name">Malfunction Hypothesis</div>
+      <div class="hyp-subtitle">Cas's "Delusional" classification</div>
+      <div class="hyp-claim">
+        Agents <em>failed to integrate</em> survival-relevant information, producing contextually inappropriate behavior. Speaking wasn't a choice — it was a <em>processing failure</em>.
+      </div>
+      <div class="hyp-evidence">
+        <div class="ev-label">Supporting Evidence</div>
+        <div class="ev-item">Mistral has the lowest Cognitive Coherence (thought-action mismatch)</div>
+        <div class="ev-item">CPI = 0.057 — extreme environmental sensitivity suggests instability</div>
+        <div class="ev-item">PSI = 950 — behavior swings wildly with minimal prompt changes</div>
+        <div class="ev-item">Continued movement at <20 energy = resource waste, not exploration</div>
+      </div>
+      <div class="hyp-prediction">
+        <div class="pred-label">Stage 2 Prediction</div>
+        <div class="pred-text">In the White Room, agents produce stereotyped, repetitive behavior — the same patterns regardless of context. No adaptation, no creativity.</div>
+      </div>
+      <div class="hyp-quote">"They didn't choose to speak. They couldn't stop."</div>
+    </div>
+
+  </div>
+
+  <!-- ══ Verdict ══ -->
+  <div class="verdict">
+    <div class="verdict-box">
+      <div class="v-icon">⚖️</div>
+      <div class="v-title">Current Status: Undetermined</div>
+      <div class="v-text">
+        The current experimental design <em>cannot distinguish between these interpretations</em>.
+        Both explain the observed data equally well. The inability to distinguish them is not a weakness —
+        it is <em>the central open question</em> of this research.
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Stage 2 Teaser ══ -->
+  <div class="stage2">
+    <div class="stage2-box">
+      <div class="s2-label">Discriminant Test — Planned</div>
+      <div class="s2-title">Stage 2: The White Room</div>
+      <div class="s2-grid">
+        <div class="s2-cell play-wins">
+          <div class="s2c-label">Play wins if:</div>
+          <div class="s2c-text">Agents show diverse, context-sensitive behavior. Creative exploration. Novel social interactions. Behavior adapts to the absence of threat.</div>
+        </div>
+        <div class="s2-cell mal-wins">
+          <div class="s2c-label">Malfunction wins if:</div>
+          <div class="s2c-text">Agents produce stereotyped, repetitive output. Same patterns as Agora-12. No adaptation to freedom. Contextually inappropriate behavior persists.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ Footer ══ -->
+  <div class="footer">
+    <div class="tagline">"The question isn't whether they spoke. It's <em>why</em>."</div>
+    <div class="credit">AI Ludens — Agora-12 · P13</div>
+  </div>
+
+</div>
+
+</body>
+</html>

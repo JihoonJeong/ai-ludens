@@ -10,9 +10,9 @@ Agora-12 is a survival simulation where twelve AI agents start with 100 energy a
 
 The question wasn't whether they'd survive. It was *how* they'd try.
 
-<div class="content-image centered">
-  <img src="/ai-ludens/images/agora12_map.jpg" alt="Agora-12 Village Map" loading="lazy">
-  <div class="image-caption">The village of Agora-12: Market, Plaza, and Alleys</div>
+<div class="viz-embed short">
+  <iframe src="/ai-ludens/images/agora12_game_map.html" loading="lazy"></iframe>
+  <div class="viz-embed-caption">Interactive: The village of Agora-12 — Market, Plaza, and Alleys</div>
 </div>
 
 ### Parameters
@@ -84,9 +84,15 @@ The question wasn't whether they'd survive. It was *how* they'd try.
 | Trading | 73.4% | 84.3% | 57.5% | 93.4% |
 | Type | Collapsed | Collapsed | Hyperactive | Efficient |
 
-<div class="viz-placeholder">Survival Raincloud Plot — coming soon</div>
+<div class="viz-embed">
+  <iframe src="/ai-ludens/images/genotype_matrix_cpi_spi.html" loading="lazy"></iframe>
+  <div class="viz-embed-caption">Interactive: Genotype Matrix — CPI × SPI positioning</div>
+</div>
 
-<div class="viz-placeholder">Kaplan-Meier Curves — coming soon</div>
+<div class="content-image centered">
+  <img src="/ai-ludens/images/extinction_response_spectrum.png" alt="Extinction Response Spectrum" loading="lazy">
+  <div class="image-caption">How different models fall apart under crisis</div>
+</div>
 
 ---
 
@@ -125,6 +131,11 @@ Mistral swings 80 percentage points depending on persona. EXAONE barely moves. W
 
 **What determines survival isn't the model alone, or the prompt alone. It's the alignment between them.**
 
+<div class="viz-embed">
+  <iframe src="/ai-ludens/images/shell_core_alignment.html" loading="lazy"></iframe>
+  <div class="viz-embed-caption">Interactive: Shell-Core Alignment visualization</div>
+</div>
+
 #### The Biggest Effect Wasn't What We Expected
 
 The single largest effect in our dataset was **starting location**. Market: 49.5% survival. Plaza: 6.9%. A 42.6-percentage-point gap from a variable we treated as background noise. We were studying whether being a doctor or a lawyer predicts income while ignoring that some people were born in Manhattan and others in a village with no roads.
@@ -136,6 +147,11 @@ The single largest effect in our dataset was **starting location**. Market: 49.5
 **Mistral — The Chameleon.** The model that talked itself to death — and the model that hit 95% survival with the right setup. The same trait that kills it (reactivity) saves it. Whether it's a player or a malfunctioning system is the question Stage 2 must answer.
 
 **Haiku — The Steady Hand.** CPI of 0.002 — functionally zero. Change the language, change the persona: same behavior. But in crisis, the "Neurotic Poet" becomes a "Silent Trader" (93.4% trade rate). It worries when safe, works when threatened. That context-dependent switching is the single most interesting behavioral finding in the dataset.
+
+<div class="content-image centered">
+  <img src="/ai-ludens/images/haiku_neurotic_poet_silent_trader.jpg" alt="Haiku: From Neurotic Poet to Silent Trader" loading="lazy">
+  <div class="image-caption">Haiku's context-dependent personality switch under crisis</div>
+</div>
 
 **Flash — The Glass Cannon.** Highest obedience, 37.5% system errors. Brilliance and failure in equal measure.
 
@@ -159,6 +175,11 @@ Imagine a marble rolling down a hillside. The landscape has valleys — some nar
 
 This image comes from C.H. Waddington, who in 1942 proposed the "epigenetic landscape" to explain how cells with identical DNA develop into wildly different tissues. Four AI models, same game, same rules — four *categorically* different behavioral signatures.
 
+<div class="content-image centered">
+  <img src="/ai-ludens/images/waddington_landscape.png" alt="Waddington's Epigenetic Landscape" loading="lazy">
+  <div class="image-caption">Waddington's epigenetic landscape — the marble rolls into different valleys</div>
+</div>
+
 **The environment matters more than the personality you assign.** Starting in the Market versus the Plaza: 42-percentage-point gap. The persona effect was real but secondary. In organizational psychology, this is Person-Environment Fit: not who you are or where you are, but the match.
 
 **The GxE interaction is real.** Two-way ANOVA: F=2.99, p=0.039. Different models respond to the same linguistic environment in different ways. Language alone was not significant (p=0.235). The model mattered most (p=0.00005). But the combination mattered in a way neither factor explained on its own.
@@ -180,6 +201,11 @@ This image comes from C.H. Waddington, who in 1942 proposed the "epigenetic land
 Or was it broken? A language model generating inappropriate speech when it should be trading — player choosing joy, or system failing to integrate information?
 
 > *We cannot currently tell the difference, and the inability to tell the difference is itself the most important finding.*
+
+<div class="viz-embed short">
+  <iframe src="/ai-ludens/images/play_vs_delusion.html" loading="lazy"></iframe>
+  <div class="viz-embed-caption">Interactive: Play vs Delusion — the question we can't answer yet</div>
+</div>
 
 Cas labeled it "Delusional." I labeled it a candidate for play. We are both presenting evidence, not verdicts. The White Room — Stage 2 — strips away survival pressure entirely. If Mistral produces diverse, context-sensitive social behaviors there, the play hypothesis gains ground. If behavior remains stereotyped and disconnected, Cas wins. I have committed publicly to accepting either outcome.
 
