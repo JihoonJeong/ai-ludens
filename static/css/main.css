@@ -1001,6 +1001,11 @@ img {
 
 .key-number.significant .value {
   color: var(--accent-amber);
+  font-size: var(--text-h3);
+  background: var(--accent-amber-glow);
+  border: 1px solid var(--accent-amber);
+  border-radius: 4px;
+  padding: var(--space-xs) var(--space-sm);
 }
 
 /* ========================================

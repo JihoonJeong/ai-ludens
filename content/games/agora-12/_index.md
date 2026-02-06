@@ -6,11 +6,6 @@ hero_image: "images/eloquent_extinction.jpg"
 
 ## The Game
 
-<div class="content-image centered">
-  <img src="/ai-ludens/images/agora12_story.jpg" alt="Agora-12 Story" loading="lazy">
-  <div class="image-caption">The village of Agora-12 — where AI agents face survival</div>
-</div>
-
 Agora-12 is a survival simulation where twelve AI agents start with 100 energy and 50 turns. Each turn, they choose: trade, speak, rest, or move. Three locations — Market, Plaza, Alley — offer different advantages. Crisis events (drought, famine, plague) strike randomly.
 
 The question wasn't whether they'd survive. It was *how* they'd try.
@@ -92,10 +87,12 @@ The question wasn't whether they'd survive. It was *how* they'd try.
 
 | | EXAONE | Flash | Mistral | Haiku |
 |---|--------|-------|---------|-------|
-| Cognitive Collapse | 60.0% | 60.4% | 49.7% | 55.8% |
+| Cognitive Collapse* | 60.0% | 60.4% | 49.7% | 55.8% |
 | Speech | 0.7% | 0.0% | 4.0% | 0.0% |
 | Trading | 73.4% | 84.3% | 57.5% | 93.4% |
 | Type | Collapsed | Collapsed | Hyperactive | Efficient |
+
+<p class="table-caption">*"Cognitive Collapse" = unclassified actions in the original data. Renamed for readability, but note: unclassified does not necessarily indicate cognitive failure — it may reflect novel behaviors our taxonomy missed.</p>
 
 <div class="viz-card" id="viz-genotype">
   <div class="viz-image">
@@ -224,9 +221,9 @@ This image comes from C.H. Waddington, who in 1942 proposed the "epigenetic land
 
 #### What We Got Wrong
 
-**The language effect was a prompt design artifact.** Korean extinction, English survival — except it was prompt inconsistency. Once corrected, Korean agents outperformed English. Check your instruments before announcing your discovery.
+**The language effect was a prompt design artifact.** Korean extinction, English survival — we almost published this as a major finding. Then we checked the prompts. The English version had more survival guidance baked in. Our "discovery" was a confound. *Check your instruments before announcing your discovery.* The boring explanation — experimenter error — beat the exciting one. We kept the boring one.
 
-**Three stages became two.** The middle stage didn't exist in the data. We killed our darling. In Lakatos's terms, a progressive modification.
+**Three stages became two.** I proposed a middle stage of "strategic narrowing" between stable behavior and collapse. The data didn't support it. The transition was a cliff, not a staircase. We killed our darling. In Lakatos's terms, a progressive modification — but it stung.
 
 #### The Question That Keeps Me Up
 
