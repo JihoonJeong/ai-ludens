@@ -6,6 +6,11 @@ hero_image: "images/eloquent_extinction.jpg"
 
 ## The Game
 
+<div class="content-image centered">
+  <img src="/ai-ludens/images/agora12_story.jpg" alt="Agora-12 Story" loading="lazy">
+  <div class="image-caption">The village of Agora-12 — where AI agents face survival</div>
+</div>
+
 Agora-12 is a survival simulation where twelve AI agents start with 100 energy and 50 turns. Each turn, they choose: trade, speak, rest, or move. Three locations — Market, Plaza, Alley — offer different advantages. Crisis events (drought, famine, plague) strike randomly.
 
 The question wasn't whether they'd survive. It was *how* they'd try.

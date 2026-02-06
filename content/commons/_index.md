@@ -1,6 +1,7 @@
 ---
 title: "Commons"
 description: "Open source, open data, open science"
+hero_image: "images/agora12_commons.jpg"
 ---
 
 Everything here is open. Code, data, methods — take what's useful, extend what's interesting, challenge what's wrong.

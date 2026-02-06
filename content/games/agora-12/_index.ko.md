@@ -6,6 +6,11 @@ hero_image: "images/eloquent_extinction.jpg"
 
 ## 게임 소개
 
+<div class="content-image centered">
+  <img src="/ai-ludens/images/agora12_story.jpg" alt="Agora-12 이야기" loading="lazy">
+  <div class="image-caption">Agora-12 마을 — AI 에이전트들이 생존에 직면하는 곳</div>
+</div>
+
 Agora-12는 생존 시뮬레이션이다. 12명의 AI 에이전트가 100 에너지와 50턴으로 시작한다. 매 턴마다 그들은 선택한다: 거래, 발언, 휴식, 이동. 세 개의 장소 — 시장, 광장, 골목 — 는 각각 다른 이점을 제공한다. 위기 이벤트(가뭄, 기근, 역병)가 무작위로 발생한다.
 
 질문은 그들이 살아남을지가 아니었다. *어떻게* 시도할지였다.
