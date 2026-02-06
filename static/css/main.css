@@ -385,9 +385,13 @@ img {
 }
 
 .page p {
-  margin-bottom: var(--space-md);
+  margin: var(--space-md) 0;
   color: var(--text-secondary);
   line-height: var(--line-height-relaxed);
+}
+
+.page p:first-child {
+  margin-top: 0;
 }
 
 .page a {
@@ -1125,25 +1129,23 @@ img {
    Lists — Better Spacing
    ======================================== */
 
-.page ol {
-  margin: var(--space-md) 0 var(--space-lg) 0;
+.page ol,
+.page ul {
+  margin: var(--space-lg) 0;
   padding-left: 2rem;
   list-style-position: outside;
 }
 
-.page ol li {
+.page ol li,
+.page ul li {
   padding-left: 0.5rem;
   margin-bottom: var(--space-md);
   line-height: var(--line-height-relaxed);
 }
 
-.page ul {
-  margin: var(--space-md) 0;
-  padding-left: 2rem;
-}
-
-.page ul li {
-  margin-bottom: var(--space-sm);
+.page ol li:last-child,
+.page ul li:last-child {
+  margin-bottom: 0;
 }
 
 /* ========================================
