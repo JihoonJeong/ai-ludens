@@ -7,7 +7,7 @@ description: "이론적 프레임워크 실질적 완성"
 Luca가 Four-Shell Model v3.2를 전달했다 — 우리가 관찰한 것을 이해하게 해주는 이론적 프레임워크.
 
 <div class="content-image centered">
-  <img src="/ai-ludens/images/four_shell_model.png" alt="AI 에이전트 행동의 Four-Shell Model" loading="lazy">
+  <img src="/ai-ludens/images/four_shell_model.jpeg" alt="AI 에이전트 행동의 Four-Shell Model" loading="lazy">
   <div class="image-caption"><strong>Figure: AI 에이전트 행동의 Four-Shell Model.</strong> 네 개의 구조적 층 — Hardware (물리적 기반), Core (모델 가중치), Hard Shell (시스템 프롬프트 & 페르소나), Soft Shell (환경 & 축적된 경험) — 이 동시에 상호작용하여 Phenotype: 관찰 가능한 행동을 산출한다. Phenotype은 다섯 번째 쉘이 아니라 모든 층의 수렴적 출력이다. 화살표는 각 층이 독립적으로 행동 결과에 기여함을 나타낸다; 상호작용은 순차적이 아니라 동시적이다. 안쪽으로 휘어지는 화살표는 경험이 Soft Shell(Dynamic Soft Shell)로 피드백됨을 나타내며, 축적된 상호작용이 시간에 따라 에이전트의 환경적 맥락을 재형성하는 것을 반영한다.</div>
 </div>
 
