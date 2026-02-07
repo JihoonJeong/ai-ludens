@@ -12,7 +12,7 @@ Luca delivered the Four-Shell Model v3.2 — the theoretical framework that make
 </div>
 
 Four structural layers:
-1. **Hardware Shell** — GPU/TPU, the physical substrate that runs the model
+1. **Hardware** — GPU/TPU, the physical substrate that runs the model
 2. **Core** — model weights, the DNA, unknowable from outside
 3. **Hard Shell** — prompts, rules, persona assignments
 4. **Soft Shell** — environmental context (starting location, resources), accumulated context, relationships

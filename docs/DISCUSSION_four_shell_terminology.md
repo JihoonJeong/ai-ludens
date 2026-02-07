@@ -124,7 +124,7 @@ Landscape가 Four-Shell의 어느 부분에 해당하는가? 최외곽 층인가
 
 ### 공식 정의 (Luca 작성, Theo 승인)
 
-> "Four-Shell Model은 네 개의 구조적 층(Hardware Shell, Core, Hard Shell, Soft Shell)과 하나의 산출물(Phenotype)으로 구성된다. Soft Shell은 에이전트의 환경적 맥락이며, Phenotype은 모든 층의 상호작용에서 산출되는 관찰 가능한 행동이다. Phenotype은 층(Shell)이 아니다."
+> "Four-Shell Model은 네 개의 구조적 층(Hardware, Core, Hard Shell, Soft Shell)과 하나의 산출물(Phenotype)으로 구성된다. Soft Shell은 에이전트의 환경적 맥락이며, Phenotype은 모든 층의 상호작용에서 산출되는 관찰 가능한 행동이다. Phenotype은 층(Shell)이 아니다."
 
 ### 질문별 답변
 

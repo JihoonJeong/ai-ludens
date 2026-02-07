@@ -12,7 +12,7 @@ Luca가 Four-Shell Model v3.2를 전달했다 — 우리가 관찰한 것을 이
 </div>
 
 네 개의 구조적 층:
-1. **Hardware Shell** — GPU/TPU, 모델을 실행하는 물리적 기반
+1. **Hardware** — GPU/TPU, 모델을 실행하는 물리적 기반
 2. **Core** — 모델 가중치, DNA, 외부에서 알 수 없음
 3. **Hard Shell** — 프롬프트, 규칙, 페르소나 할당
 4. **Soft Shell** — 환경적 맥락 (시작 위치, 자원), 축적된 컨텍스트, 관계

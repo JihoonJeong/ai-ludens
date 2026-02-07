@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version:*)",
+      "Bash(gh:*)",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Program Files/GitHub CLI:$PATH\")",
+      "Bash(git init:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: project docs and platform plan v0.3\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git config:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(hugo version:*)",
+      "Bash(export PATH=\"/c/ProgramData/Hugo/bin:$PATH\")",
+      "Bash(export PATH=\"/c/Users/jihoo/AppData/Local/Microsoft/WinGet/Packages/Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe:$PATH\")",
+      "Bash(hugo:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd Hugo site structure and GitHub Pages deployment\n\n- Hugo config with platform navigation \\(Games, Insights, Log, Commons, Team, Ethics\\)\n- Base layouts \\(baseof, single, list, index\\)\n- Dark theme CSS matching research lab aesthetic\n- Content stubs for all platform sections per v0.3 plan\n- GitHub Actions workflow for automatic Hugo build and Pages deploy\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nFix Hugo build: remove empty theme config\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git commit:*)",
+      "Bash(\"/c/Users/jihoo/AppData/Local/Microsoft/WinGet/Packages/Hugo.Hugo.Extended_Microsoft.Winget.Source_8wekyb3d8bbwe/hugo.exe\" --gc --minify)",
+      "Bash(ls:*)",
+      "Bash(git restore:*)",
+      "Bash(where:*)",
+      "WebFetch(domain:jihoonjeong.github.io)",
+      "Bash(git reset:*)",
+      "Bash(grep:*)",
+      "Bash(git rm:*)"
+    ]
+  }
+}
