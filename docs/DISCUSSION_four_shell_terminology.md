@@ -10,7 +10,7 @@
 ## Background
 
 Four-Shell Model v3.2의 최외곽 층 명칭에 불일치가 발견되었습니다:
-- **그림(four_shell_model.png)**: "Phenotype"
+- **그림(four_shell_model.jpeg)**: "Phenotype"
 - **현재 문서 설명**: "Situation"
 - **Agent Theory 관점**: "Environment"가 더 적절할 수 있음
 

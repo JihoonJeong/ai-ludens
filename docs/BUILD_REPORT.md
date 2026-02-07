@@ -204,7 +204,7 @@ hero_image: "images/game_hero.jpg"
 | `origin_story.jpg/.html` | Day Zero 로그 (토글) |
 | `cogitative_cascade_v3.2_art.jpg` + `diagram.html` | Research Background (토글) |
 | `research_timeline.html` | 로그 인덱스 |
-| `four_shell_model.png` | Four-Shell Model 로그 |
+| `four_shell_model.jpeg` | Four-Shell Model 로그 |
 | `dna_profile_cards.png` | Agora-12 |
 | `waddington_landscape.png` | Agora-12 |
 | `haiku_neurotic_poet_silent_trader.jpg` | Agora-12 |
