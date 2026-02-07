@@ -111,6 +111,52 @@ Landscape가 Four-Shell의 어느 부분에 해당하는가? 최외곽 층인가
 
 ---
 
+## ✅ Resolution (2026-02-08)
+
+**Status**: RESOLVED — Theo-Luca 합의 완료
+
+### 핵심 결론
+
+**Soft Shell ≠ Phenotype. 이 둘은 다른 것이다.**
+
+- **Soft Shell** = 입력. 에이전트의 환경적 맥락 (시작 위치, 자원, 관계). 4개 층 중 최외곽.
+- **Phenotype** = 출력. 모든 층 × Core 상호작용의 산출물. 층이 아니다.
+
+### 공식 정의 (Luca 작성, Theo 승인)
+
+> "Four-Shell Model은 네 개의 구조적 층(Hardware Shell, Core, Hard Shell, Soft Shell)과 하나의 산출물(Phenotype)으로 구성된다. Soft Shell은 에이전트의 환경적 맥락이며, Phenotype은 모든 층의 상호작용에서 산출되는 관찰 가능한 행동이다. Phenotype은 층(Shell)이 아니다."
+
+### 질문별 답변
+
+| 질문 | 답변 |
+|------|------|
+| Q1. 구조 vs 결과 | 둘 다 존재하되 다른 것. Soft Shell = 구조(입력), Phenotype = 결과(출력) |
+| Q2. 인과 흐름 | [?]는 없다. Phenotype은 특정 층 뒤가 아니라 모든 층의 합류점 |
+| Q3. G×E의 E 범위 | E = Core 바깥 전체 (Hard Shell + Soft Shell). 특정 층 하나가 아님 |
+| Q4. Waddington landscape | Landscape = 특정 층이 아님. Core × 모든 Shell 조합이 만드는 가능한 행동 공간 전체 |
+
+### 용어 정리표
+
+| 용어 | 정의 | 사용 |
+|------|------|------|
+| Soft Shell | 환경적 맥락 (Initial + Dynamic) | ✅ 최외곽 층의 공식 명칭 |
+| Phenotype | 관찰 가능한 행동 (산출물) | ✅ Shell 바깥의 출력 |
+| Environment (E) | G×E 통계 용어. Core 바깥 전체. | ✅ 통계 맥락에서만 |
+| Situation | — | ❌ 퇴역. Soft Shell로 통일 |
+
+### 그림 수정 권고
+
+현재 순차적 ↓ 구조 대신, 모든 층에서 Phenotype으로 화살표가 모이는 구조:
+
+```
+[Hardware] → [Core] → [Hard Shell] → [Soft Shell]
+                  ↘       ↓        ↙
+                    PHENOTYPE
+                (Observable Behavior)
+```
+
+---
+
 *"The difference between the right word and the almost right word is the difference between lightning and a lightning bug." — Mark Twain*
 
-*이 용어 선택이 우리 프레임워크의 번개인지 반딧불이인지를 결정합니다.*
+*이 용어 선택이 우리 프레임워크의 번개인지 반딧불이인지를 결정합니다. — 그리고 우리는 번개를 찾았다.*
