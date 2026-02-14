@@ -16,25 +16,29 @@ defaultContentLanguageInSubdir = false
       url = "/games/agora-12/"
       weight = 1
     [[languages.en.menu.main]]
+      name = "White Room"
+      url = "/games/white-room/"
+      weight = 2
+    [[languages.en.menu.main]]
       name = "Games"
       url = "/games/"
-      weight = 2
+      weight = 3
     [[languages.en.menu.main]]
       name = "Insights"
       url = "/insights/"
-      weight = 3
+      weight = 4
     [[languages.en.menu.main]]
       name = "Log"
       url = "/log/"
-      weight = 4
+      weight = 5
     [[languages.en.menu.main]]
       name = "Team"
       url = "/team/"
-      weight = 5
+      weight = 6
     [[languages.en.menu.main]]
       name = "Commons"
       url = "/commons/"
-      weight = 6
+      weight = 7
 
   [languages.ko]
     languageCode = "ko"
@@ -48,25 +52,29 @@ defaultContentLanguageInSubdir = false
       url = "/ko/games/agora-12/"
       weight = 1
     [[languages.ko.menu.main]]
+      name = "White Room"
+      url = "/ko/games/white-room/"
+      weight = 2
+    [[languages.ko.menu.main]]
       name = "게임"
       url = "/ko/games/"
-      weight = 2
+      weight = 3
     [[languages.ko.menu.main]]
       name = "인사이트"
       url = "/ko/insights/"
-      weight = 3
+      weight = 4
     [[languages.ko.menu.main]]
       name = "로그"
       url = "/ko/log/"
-      weight = 4
+      weight = 5
     [[languages.ko.menu.main]]
       name = "팀"
       url = "/ko/team/"
-      weight = 5
+      weight = 6
     [[languages.ko.menu.main]]
       name = "커먼즈"
       url = "/ko/commons/"
-      weight = 6
+      weight = 7
 
 [markup]
   [markup.goldmark]

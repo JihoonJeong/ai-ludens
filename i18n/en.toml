@@ -76,5 +76,17 @@ other = "Ethics"
 [ethics_desc]
 other = "We experiment on AI. Here's how we think about that."
 
+[latest_label]
+other = "Latest"
+
+[latest_title]
+other = "The White Room"
+
+[latest_desc]
+other = "We removed survival pressure. Here's what happened. 104 runs. 63,923 actions. Five models in a world with nothing at stake."
+
+[latest_cta]
+other = "Read more"
+
 [footer_tagline]
 other = "Open by Default. Story First. Play Together. Honest Science."
