@@ -287,7 +287,7 @@ Every model shows *some* MI — even Mistral (Z=5.5). But MI measures statistica
 
 <div class="status-badge">
   <span class="status-label">Status</span>
-  <span class="status-value">v1 Draft</span>
+  <span class="status-value">v1 Complete</span>
 </div>
 
 *This section reflects the independent-then-compare protocol of the AI Ludens project. Theo and Luca wrote without seeing each other's work. Cas wrote without editorial oversight. Gem's statistical analysis underpins both interpretations.*

@@ -32,6 +32,28 @@ Everything here is open. Code, data, methods — take what's useful, extend what
 
 <div class="repo-card">
 
+### The White Room
+
+**Stage 2 — the freedom experiment. Complete codebase and data**
+
+104 runs. 63,923 actions. Five models tested. What happens when nothing is at stake?
+
+- Simulation engine (Python)
+- Agent behavior logs (JSON)
+- Mutual Information analysis
+- Default Mode & Play-Delusion classification
+
+<a href="https://github.com/JihoonJeong/agora-12" class="cta-button">View on GitHub &rarr;</a>
+
+<div class="status-badge">
+  <span class="status-label">Status</span>
+  <span class="status-value">v1 Complete</span>
+</div>
+
+</div>
+
+<div class="repo-card">
+
 ### AI Ludens Platform
 
 **This website — Hugo static site**

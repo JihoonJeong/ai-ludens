@@ -287,7 +287,7 @@ Phase 2는 생존 압력을 제거했다. 하지만 우리는 생존 압력이 *
 
 <div class="status-badge">
   <span class="status-label">상태</span>
-  <span class="status-value">v1 Draft</span>
+  <span class="status-value">v1 완료</span>
 </div>
 
 *이 섹션은 AI Ludens 프로젝트의 독립-후-비교 프로토콜을 반영한다. Theo와 Luca는 서로의 작업을 보지 않고 썼다. Cas는 편집 감독 없이 썼다. Gem의 통계 분석이 두 해석을 뒷받침한다.*

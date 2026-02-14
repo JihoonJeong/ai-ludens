@@ -32,6 +32,28 @@ hero_image: "images/agora12_commons.jpg"
 
 <div class="repo-card">
 
+### The White Room
+
+**Stage 2 — 자유 실험. 전체 코드베이스와 데이터**
+
+104회 실험. 63,923개 행동. 다섯 모델 테스트. 아무것도 걸려 있지 않을 때 무슨 일이 일어나는가?
+
+- 시뮬레이션 엔진 (Python)
+- 에이전트 행동 로그 (JSON)
+- 상호 정보량 분석
+- 기본 모드 & 놀이-망상 분류
+
+<a href="https://github.com/JihoonJeong/agora-12" class="cta-button">GitHub에서 보기 &rarr;</a>
+
+<div class="status-badge">
+  <span class="status-label">상태</span>
+  <span class="status-value">v1 완료</span>
+</div>
+
+</div>
+
+<div class="repo-card">
+
 ### AI Ludens 플랫폼
 
 **이 웹사이트 — Hugo 정적 사이트**
