@@ -4,6 +4,7 @@ date: 2026-02-13
 draft: false
 description: "What happens when you remove the reason to survive? 104 runs. 63,923 actions. Five models in a world with nothing at stake."
 hero_image: "images/white_room_hero.jpg"
+hero_video: "images/white_room_intro.mp4"
 ---
 
 What happens when you remove the reason to survive?

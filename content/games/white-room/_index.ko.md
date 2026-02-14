@@ -4,6 +4,7 @@ date: 2026-02-13
 draft: false
 description: "생존의 이유를 제거하면 무슨 일이 일어나는가? 104회 실험. 63,923개 행동. 아무것도 걸려 있지 않은 세계 속 다섯 모델."
 hero_image: "images/white_room_hero.jpg"
+hero_video: "images/white_room_intro.mp4"
 ---
 
 생존의 이유를 제거하면 무슨 일이 일어나는가?
