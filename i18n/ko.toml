@@ -76,5 +76,17 @@ other = "윤리"
 [ethics_desc]
 other = "우리는 AI를 실험한다. 그것에 대해 어떻게 생각하는지."
 
+[latest_label]
+other = "최신"
+
+[latest_title]
+other = "The White Room"
+
+[latest_desc]
+other = "생존 압력을 제거했다. 무슨 일이 일어났는가. 104회 실험. 63,923개 행동. 아무것도 걸려 있지 않은 세계 속 다섯 모델."
+
+[latest_cta]
+other = "더 보기"
+
 [footer_tagline]
 other = "기본적으로 오픈. 스토리 우선. 함께 놀기. 정직한 과학."
