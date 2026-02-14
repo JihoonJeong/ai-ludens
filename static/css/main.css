@@ -1623,3 +1623,28 @@ html[lang="ko"] .page h3 {
 html[lang="ko"] .nav-menu a {
   letter-spacing: 0.05em;
 }
+
+/* ========================================
+   White Room — Cool Tone Override
+   ======================================== */
+
+.page-hero.page-white-room img {
+  opacity: 0.5;
+}
+
+.page-hero.page-white-room::after {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(10, 14, 23, 0.5) 60%,
+    var(--bg-deep) 100%
+  );
+}
+
+article.page-white-room .status-badge {
+  border-color: var(--text-secondary);
+}
+
+article.page-white-room .status-value {
+  color: var(--text-secondary);
+}

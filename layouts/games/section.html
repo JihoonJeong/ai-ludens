@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ with .Params.hero_image }}
-<div class="page-hero">
+<div class="page-hero page-{{ $.File.Dir | path.Base }}">
   <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
   <div class="page-hero-content">
     <h1>{{ $.Title }}</h1>
@@ -9,7 +9,7 @@
 </div>
 {{ end }}
 
-<article class="page">
+<article class="page page-{{ .File.Dir | path.Base }}">
   {{ if not .Params.hero_image }}<h1>{{ .Title }}</h1>{{ end }}
   {{ .Content }}
 </article>

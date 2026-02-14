@@ -19,7 +19,7 @@
 </div>
 {{ end }}
 
-<article class="page">
+<article class="page page-{{ .File.Dir | path.Base }}">
   {{ if not .Params.hero_image }}<h1>{{ .Title }}</h1>{{ end }}
   {{ .Content }}
 </article>
