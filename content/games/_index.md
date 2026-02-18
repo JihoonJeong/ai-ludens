@@ -15,7 +15,7 @@ description: "We build games for AI. Then we watch what happens."
 
 | Game | Core Question | Status |
 |------|---------------|--------|
-| *TBD* | Can they cooperate with us? | Concept |
+| [**AI Three Kingdoms**](three-kingdoms/) | Can they cooperate with us? | **v1 In Progress** |
 | *TBD* | Can they understand us? | Concept |
 
 ## Category C: Community Games
