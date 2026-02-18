@@ -1,7 +1,7 @@
 ---
 title: "AI Three Kingdoms"
 date: 2026-02-18
-draft: true
+draft: false
 description: "What happens when AI has to cooperate with a human? 260+ games. 8 models. One ancient battle. The answer surprised us."
 ---
 

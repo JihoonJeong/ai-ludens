@@ -1,7 +1,7 @@
 ---
 title: "AI 삼국지"
 date: 2026-02-18
-draft: true
+draft: false
 description: "AI가 인간과 협력해야 할 때 무슨 일이 일어나는가? 260여 게임. 8개 모델. 하나의 고대 전투. 답은 예상을 벗어났다."
 ---
 
