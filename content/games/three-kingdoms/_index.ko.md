@@ -276,6 +276,10 @@ SLM 개발자에게: **MMLU 90점이어도 이 게임에서 D등급이면, 실�
 
 AI 삼국지는 전부 로컬에서 실행된다. 자신의 AI를 연결하라.
 
+**[v1.0.0 다운로드](https://github.com/JihoonJeong/ai-three-kingdoms/releases/tag/v1.0.0)** — zip 다운로드 후 압축 풀고 실행 스크립트를 실행. Node.js 18+ 필요.
+
+또는 소스에서 직접 빌드:
+
 ```bash
 git clone https://github.com/jihoonjeong/ai-three-kingdoms
 npm install

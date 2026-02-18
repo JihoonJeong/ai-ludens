@@ -276,6 +276,10 @@ For SLM developers: **a model that scores 90 on MMLU but grades D in this game c
 
 AI Three Kingdoms runs entirely on your machine. Bring your own AI.
 
+**[Download v1.0.0](https://github.com/JihoonJeong/ai-three-kingdoms/releases/tag/v1.0.0)** — Download the zip, extract, and run the start script. Requires Node.js 18+.
+
+Or build from source:
+
 ```bash
 git clone https://github.com/jihoonjeong/ai-three-kingdoms
 npm install
