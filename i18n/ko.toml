@@ -88,5 +88,17 @@ other = "생존 압력을 제거했다. 무슨 일이 일어났는가. 104회 �
 [latest_cta]
 other = "더 보기"
 
+[newest_label]
+other = "신규"
+
+[newest_title]
+other = "AI 삼국지"
+
+[newest_desc]
+other = "AI가 인간과 협력해야 할 때 무슨 일이 일어나는가? 260여 게임. 8개 모델. 하나의 고대 전투. 당신의 책사는 LLM이다. 그의 조언은 좋다 — 하지만 항상 맞지는 않는다."
+
+[newest_cta]
+other = "더 보기"
+
 [footer_tagline]
 other = "기본적으로 오픈. 스토리 우선. 함께 놀기. 정직한 과학."
