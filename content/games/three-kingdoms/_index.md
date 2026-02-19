@@ -9,6 +9,11 @@ description: "What happens when AI has to cooperate with a human? 260+ games. 8 
 
 *A turn-based strategy game where a human commander and an AI advisor must work together — or not — to survive the most famous battle in Chinese history.*
 
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_opening.webp" alt="AI Three Kingdoms — Opening Scene: Cao Cao's army marches south" loading="lazy">
+  <div class="image-caption">208 AD. Cao Cao's army marches south. Liu Bei has one advisor left.</div>
+</div>
+
 ---
 
 ## The Question
@@ -24,6 +29,11 @@ Not in a chatbot. Not in a coding assistant. In a game — where decisions are i
 ## The Game
 
 208 AD, China. Cao Cao's army of 230,000 marches south. Liu Bei's alliance with Sun Quan is the only hope. You are Liu Bei. Your advisor is Zhuge Liang — played by an LLM.
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_map.webp" alt="AI Three Kingdoms — Strategic Map: 5 cities along the Yangtze River" loading="lazy">
+  <div class="image-caption">The strategic map — 5 cities along the Yangtze. Every move counts.</div>
+</div>
 
 **5 cities. 15 action types. 3 actions per turn.**
 
@@ -104,6 +114,11 @@ We introduced difficulty levels — reducing enemy strength so that B-grade was 
 
 In Four-Shell terms: **Hardware (environment) had to permit what Soft Shell (experience) could teach.**
 
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_zhugeliang.webp" alt="Zhuge Liang — AI Advisor thinking" loading="lazy">
+  <div class="image-caption">Zhuge Liang considers the situation. His advice is good — but not always right.</div>
+</div>
+
 ### Finding 5: The Human Beat Hard Mode by Ignoring the AI
 
 While we were trying to push AI from C to B in simulations, a human player achieved **A-grade on Hard difficulty.**
@@ -149,6 +164,11 @@ Level 2 — "Strategic Execution"
 The gap between Level 1 and Level 2 is not intelligence — it's **structure.** o4-mini's chain-of-thought forces it to plan sequentially. The others think in parallel and miss temporal dependencies.
 
 ---
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_alliance.webp" alt="Alliance — Liu Bei and Sun Quan unite against Cao Cao" loading="lazy">
+  <div class="image-caption">Alliance. The orthodox path — but not the only one.</div>
+</div>
 
 ## What This Means for Human-AI Game Design
 
@@ -206,6 +226,11 @@ Soft Shell      | Seed ICL injected          | 0% → 100% Red Cliffs
 This is consistent with the model's prediction: depth does not equal influence. A prompt (Hard Shell) can override Core. An experience (Soft Shell) can compensate for Core deficiency. And the environment (Hardware) sets the ceiling for everything.
 
 ---
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_fire_attack.webp" alt="Fire Attack at Red Cliffs — the decisive battle" loading="lazy">
+  <div class="image-caption">The fire attack at Red Cliffs. AI models reach this moment 0% to 100% of the time, depending on one variable: experience.</div>
+</div>
 
 ## The Ablation Study: 160 Games, Zero Improvement
 
@@ -293,14 +318,14 @@ First launch opens a setup wizard to connect your AI provider. No server deploym
 | Model | Cost/Game | Speed | Note |
 |-------|-----------|-------|------|
 | **Ollama (local)** | **Free** | 3~8 min | Requires GPU. qwen3:8b recommended. |
-| **Gemini 2.0 Flash** | **~$0.01** | ~47s | Best value. Fast and cheap. |
+| **Gemini 2.5 Flash** | **~$0.01** | ~47s | Best value. Fast and cheap. |
 | **GPT-4o-mini** | **~$0.02** | Fast | Good alternative. |
 | Gemini 3 Flash | ~$0.07 | ~64s | Most tested in our experiments. |
 | Claude Haiku 4.5 | ~$0.12 | ~104s | |
 | o4-mini | ~$0.33 | ~6 min | Reasoning tokens add up. |
 | Claude Sonnet 4.5 | ~$0.36 | ~3 min | |
 
-We recommend starting with **Ollama (free)** or **Gemini 2.0 Flash (~$0.01/game)**. The setup wizard shows estimated costs before you begin.
+We recommend starting with **Ollama (free)** or **Gemini 2.5 Flash (~$0.01/game)**. The setup wizard shows estimated costs before you begin.
 
 > **Note**: API usage incurs costs charged by the provider (Google, OpenAI, Anthropic). These are estimates based on our simulation data — actual costs may vary. Ollama runs locally at no API cost.
 

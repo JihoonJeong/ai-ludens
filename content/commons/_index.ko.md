@@ -54,6 +54,28 @@ hero_image: "images/agora12_commons.jpg"
 
 <div class="repo-card">
 
+### AI 삼국지
+
+**카테고리 B — 협력 게임. AI가 인간 군주에게 조언할 수 있는가?**
+
+260여 게임. 8개 모델. 4개 언어. 자신의 AI를 연결하고 적벽대전을 플레이하라.
+
+- 게임 엔진 (TypeScript, 프레임워크 없음)
+- 멀티 AI 제공자 통합 (Claude, OpenAI, Gemini, Ollama)
+- 시뮬레이션 러너 + ICL 실험 도구
+- 160게임 절제 실험 데이터
+
+<a href="https://github.com/JihoonJeong/ai-three-kingdoms" class="cta-button">GitHub에서 보기 &rarr;</a>
+
+<div class="status-badge">
+  <span class="status-label">상태</span>
+  <span class="status-value">v1.0.0</span>
+</div>
+
+</div>
+
+<div class="repo-card">
+
 ### AI Ludens 플랫폼
 
 **이 웹사이트 — Hugo 정적 사이트**
