@@ -54,6 +54,28 @@ Everything here is open. Code, data, methods — take what's useful, extend what
 
 <div class="repo-card">
 
+### AI Three Kingdoms
+
+**Category B — the cooperation game. Can AI advise a human commander?**
+
+260+ games. 8 models. 4 languages. Bring your own AI and play the Battle of Red Cliffs.
+
+- Game engine (TypeScript, vanilla — no framework)
+- Multi-provider AI integration (Claude, OpenAI, Gemini, Ollama)
+- Simulation runner + ICL experiment tools
+- 160-game ablation study data
+
+<a href="https://github.com/JihoonJeong/ai-three-kingdoms" class="cta-button">View on GitHub &rarr;</a>
+
+<div class="status-badge">
+  <span class="status-label">Status</span>
+  <span class="status-value">v1.0.0</span>
+</div>
+
+</div>
+
+<div class="repo-card">
+
 ### AI Ludens Platform
 
 **This website — Hugo static site**

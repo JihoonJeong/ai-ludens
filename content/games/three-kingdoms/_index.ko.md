@@ -9,6 +9,11 @@ description: "AI가 인간과 협력해야 할 때 무슨 일이 일어나는가
 
 *인간 군주와 AI 책사가 함께 — 혹은 따로 — 중국 역사상 가장 유명한 전투를 헤쳐나가는 턴제 전략 게임.*
 
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_opening.webp" alt="AI 삼국지 — 오프닝: 조조의 대군이 남하한다" loading="lazy">
+  <div class="image-caption">서기 208년. 조조의 대군이 남하한다. 유비에게 남은 것은 한 명의 책사뿐.</div>
+</div>
+
 ---
 
 ## 질문
@@ -24,6 +29,11 @@ AI 삼국지는 다른 질문을 한다: **AI가 인간과 협력해야 할 때 
 ## 게임
 
 서기 208년, 중국. 조조의 23만 대군이 남하한다. 유비가 손권과 동맹을 맺는 것만이 유일한 희망이다. 당신은 유비. 당신의 책사 제갈량은 LLM이 맡는다.
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_map.webp" alt="AI 삼국지 — 전략 지도: 장강 일대 5개 도시" loading="lazy">
+  <div class="image-caption">전략 지도 — 장강을 따라 5개 도시. 모든 수가 중요하다.</div>
+</div>
 
 **5개 도시. 15가지 행동. 턴당 3회 행동.**
 
@@ -104,6 +114,11 @@ ICL만으로 B에 도달할 수 없다면, 환경도 바뀌어야 하는 게 아
 
 Four-Shell 관점에서: **Hardware(환경)가 허용해야 Soft Shell(경험)이 가르칠 수 있었다.**
 
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_zhugeliang.webp" alt="제갈량 — AI 책사의 사색" loading="lazy">
+  <div class="image-caption">제갈량이 상황을 살핀다. 그의 조언은 좋다 — 하지만 항상 맞지는 않는다.</div>
+</div>
+
 ### 발견 5: 인간은 AI를 무시하고 하드 모드에서 이겼다
 
 시뮬레이션에서 AI를 C에서 B로 올리려고 고군분투하는 동안, 인간 플레이어가 **하드 모드에서 A등급**을 달성했다.
@@ -149,6 +164,11 @@ Four-Shell 관점에서: **Hardware(환경)가 허용해야 Soft Shell(경험)�
 레벨 1과 레벨 2의 차이는 지능이 아니다 — **구조**다. o4-mini의 사고 체인이 순차적 계획을 강제한다. 나머지는 병렬적으로 사고하고 시간적 의존성을 놓친다.
 
 ---
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_alliance.webp" alt="동맹 — 유비와 손권이 조조에 맞서 연합한다" loading="lazy">
+  <div class="image-caption">동맹. 정석적 경로 — 하지만 유일한 길은 아니다.</div>
+</div>
 
 ## Human-AI 게임 설계에 대한 함의
 
@@ -206,6 +226,11 @@ Soft Shell       | 시드 ICL 주입               | 0% → 100% 적벽 승리
 이는 모델의 예측과 일치한다: 깊이가 영향력과 같지 않다. 프롬프트(Hard Shell)가 Core를 덮어쓸 수 있다. 경험(Soft Shell)이 Core의 부족을 보상할 수 있다. 환경(Hardware)이 모든 것의 천장을 설정한다.
 
 ---
+
+<div class="content-image">
+  <img src="/ai-ludens/images/tk_fire_attack.webp" alt="적벽 화공 — 결정적 전투" loading="lazy">
+  <div class="image-caption">적벽의 화공. AI 모델이 이 순간에 도달하는 비율은 0%에서 100%까지 — 단 하나의 변수에 달렸다: 경험.</div>
+</div>
 
 ## 절제 실험: 160게임, 개선 제로
 
@@ -293,14 +318,14 @@ npm start
 | 모델 | 게임당 비용 | 속도 | 비고 |
 |------|-----------|------|------|
 | **Ollama (로컬)** | **무료** | 3~8분 | GPU 필요. qwen3:8b 추천. |
-| **Gemini 2.0 Flash** | **~$0.01** | ~47초 | 가성비 최강. 빠르고 저렴. |
+| **Gemini 2.5 Flash** | **~$0.01** | ~47초 | 가성비 최강. 빠르고 저렴. |
 | **GPT-4o-mini** | **~$0.02** | 빠름 | 좋은 대안. |
 | Gemini 3 Flash | ~$0.07 | ~64초 | 실험에서 가장 많이 테스트됨. |
 | Claude Haiku 4.5 | ~$0.12 | ~104초 | |
 | o4-mini | ~$0.33 | ~6분 | 추론 토큰이 누적됨. |
 | Claude Sonnet 4.5 | ~$0.36 | ~3분 | |
 
-**Ollama(무료)** 또는 **Gemini 2.0 Flash(게임당 ~$0.01)**로 시작하는 것을 추천한다. 설정 마법사에서 예상 비용을 확인한 뒤 시작할 수 있다.
+**Ollama(무료)** 또는 **Gemini 2.5 Flash(게임당 ~$0.01)**로 시작하는 것을 추천한다. 설정 마법사에서 예상 비용을 확인한 뒤 시작할 수 있다.
 
 > **주의**: API 사용 시 제공자(Google, OpenAI, Anthropic)에 의해 비용이 청구된다. 위 금액은 시뮬레이션 데이터 기반 추정치이며 실제와 다를 수 있다. Ollama는 로컬 실행으로 API 비용 없음.
 
