@@ -88,5 +88,17 @@ other = "We removed survival pressure. Here's what happened. 104 runs. 63,923 ac
 [latest_cta]
 other = "Read more"
 
+[newest_label]
+other = "New"
+
+[newest_title]
+other = "AI Three Kingdoms"
+
+[newest_desc]
+other = "What happens when AI has to cooperate with a human? 260+ games. 8 models. One ancient battle. Your advisor is an LLM. His advice is good — but not always right."
+
+[newest_cta]
+other = "Read more"
+
 [footer_tagline]
 other = "Open by Default. Story First. Play Together. Honest Science."
